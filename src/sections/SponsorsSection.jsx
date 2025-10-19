@@ -9,7 +9,7 @@ import ProfileCard from '../components/SponsorCard/SponsorCard.jsx'
 export default function SponsorsSection() {
   return (
     <>
-      <div className='mt-40 min-h-[60vh] sm:mt-30 sm:mb-60 m-auto px-8'>
+      <div className='mt-40 min-h-[60vh] sm:mt-30 sm:mb-40 m-auto px-8'>
         <h1 className='text-[4vw] text-white border-t-1 pt-5 border-white text-center mb-16 '>
           {/* <ShinyText text="SPONSORS" className="text-[7vw] text-white text-center mb-16" speed={3} /> */}
           <SponsorText text="SPONSORS" speed={3} />
@@ -54,16 +54,16 @@ export default function SponsorsSection() {
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-20 mt-20 sm:mt-15 h-auto">
-          <div className='h-[22vh] sm:h-[25vh] border w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[13vw]' src="/pvr.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] border w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw]  sm:h-[13vw]' src="/mishra.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] border w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[13vw]' src="/pizza.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] border w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[15vw] align-middle' src="/pop.png" alt="" />
           </div>
         </div>
