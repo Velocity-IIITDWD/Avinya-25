@@ -14,7 +14,7 @@ function App() {
   const container = useRef(null)
 
   return (
-    <div className='min-h-screen relative overflow-y-auto' ref={container}>
+    <div className='min-h-screen relative overflow-y-auto'>
       <Menu />
       <TitleBand />
       <HeroSection />
