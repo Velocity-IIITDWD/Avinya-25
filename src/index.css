@@ -25,3 +25,10 @@ body {
   background: #000;
   font-family: 'Montserrat', sans-serif;
 }
+
+.font-mont{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:500;
+  font-style: normal;
+}
