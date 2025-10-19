@@ -10,7 +10,6 @@ import SponsorsSection from './sections/SponsorsSection.jsx'
 import ContactsSection from './sections/ContactsSection.jsx'
 import Footer from './sections/Footer.jsx'
 
-
 function App() {
   const container = useRef(null)
   useLenis();
@@ -20,8 +19,8 @@ function App() {
       <Menu />
       <TitleBand />
       <HeroSection />
-      <EventsSection />
       <AboutSection containerRef={container} />
+      <EventsSection />
       <SponsorsSection />
       <ContactsSection />
       <Footer />
