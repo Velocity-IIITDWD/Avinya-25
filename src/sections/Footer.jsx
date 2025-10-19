@@ -1,43 +1,194 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
+import { MapPin, Calendar, Zap, Music, Code, Users } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = footerRef.current?.querySelectorAll('[data-animate]');
+    elements?.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const socialLinks = [
+    { Icon: 'instagram', label: 'Instagram' },
+    { Icon: 'twitter', label: 'Twitter' },
+    { Icon: 'facebook', label: 'Facebook' },
+    { Icon: 'linkedin', label: 'LinkedIn' },
+  ];
+
+  const pages=[
+   
+     {page:"Home",link:"#"},
+     {page:"Events",link:"#"},
+     {page:"About",link:"#"},
+     {page:"Sponsers",link:"#"},
+     {page:"Contact",link:"#"},
+
+
+  ]
+   
   
+
+  const eventCategories = [
+    { Icon: Code, label: 'Tech Events', color: 'text-blue-400' },
+    { Icon: Music, label: 'Cultural Events', color: 'text-pink-400' },
+    { Icon: Zap, label: 'Workshops', color: 'text-yellow-400' },
+    { Icon: Users, label: 'Hackathons', color: 'text-green-400' },
+  ];
+
+  const importantDates = [
+    { date: 'Oct 30, 2024', event: '', icon: '🗓️' },
+    { date: 'Nov 1, 2025', event: '', icon: '🗓️' },
+   
+  ];
+
   return (
-    <footer className="mt-20 bg-black/30 backdrop-blur-sm py-12">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <h3 className="text-white text-xl mb-4">Quick Links</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li><a href="#about" className="hover:text-white transition">About</a></li>
-            <li><a href="#events" className="hover:text-white transition">Events</a></li>
-            <li><a href="#sponsors" className="hover:text-white transition">Sponsors</a></li>
-            <li><a href="#contact" className="hover:text-white transition">Contact</a></li>
-          </ul>
+    <footer ref={footerRef} className="bg-black border-t border-gray-800">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-24">
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+          
+          {/* Brand Section */}
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <h1 className="text-4xl font-bold text-white mb-6 italic font-serif tracking-wider">
+              Avinya '25
+            </h1>
+            <p className="text-gray-500 text-sm leading-relaxed mb-8">
+              The premier tech and cultural fest bringing together innovation and tradition.
+            </p>
+            <div className="flex gap-5">
+              {socialLinks.map(({ label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  className="text-gray-400 hover:text-white transition-all duration-300 hover:scale-110"
+                >
+                  <span className="text-xl">◉</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <h3 className="text-white font-semibold mb-8 text-lg">Quick Links</h3>
+            <ul className="space-y-4">
+              {pages.map((link) => (
+                <li key={link}>
+                  <a
+                    href={link.link}
+                    className="text-gray-500 hover:text-white transition-all duration-300 text-sm group"
+                  >
+                    <span className="group-hover:translate-x-1 inline-block transition-transform">
+                      {link.page}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Event Categories */}
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <h3 className="text-white font-semibold mb-8 text-lg">Event Categories</h3>
+            <ul className="space-y-4">
+              {eventCategories.map(({ Icon, label, color }) => (
+                <li key={label} aria-label={Icon}>
+                  <p
+                   
+                    className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-sm group flex items-center gap-2"
+                  >
+                    <Icon size={16} className={`${color} group-hover:scale-110 transition-transform`} />
+                    <span className="group-hover:translate-x-1 inline-block transition-transform">
+                      {label}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Important Dates */}
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <h3 className="text-white font-semibold mb-8 text-lg">Important Dates</h3>
+            <ul className="space-y-3">
+              {importantDates.map(({ date, event, icon }) => (
+                <li key={event} className="group">
+                  <p
+                  
+                    className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-xs flex items-start gap-2 group-hover:gap-3"
+                  >
+                    <span className="text-lg flex-shrink-0">{icon}</span>
+                    <div className="flex flex-col">
+                      <span className="font-semibold my-1 text-gray-400 group-hover:text-white">{date}</span>
+                      <span className="text-gray-600 group-hover:text-gray-400 text-xs">{event}</span>
+                    </div>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Location */}
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <h3 className="text-white font-semibold mb-8 text-lg flex items-center gap-2">
+              <MapPin size={20} />
+              Location
+            </h3>
+            <div className="bg-gray-900 rounded-lg border border-gray-800 p-5 hover:border-gray-700 transition-all duration-300 group">
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">Venue</p>
+                  <p className="text-white text-sm font-semibold">
+                    College Main Campus
+                  </p>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">Address</p>
+                  <p className="text-gray-300 text-sm">
+                    IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad 580009, Karnataka
+                  </p>
+                </div>
+               
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div>
-          <h3 className="text-white text-xl mb-4">Connect</h3>
-          <ul className="space-y-2 text-gray-300">
-            <li><a href="#" className="hover:text-white transition">Instagram</a></li>
-            <li><a href="#" className="hover:text-white transition">Twitter</a></li>
-            <li><a href="#" className="hover:text-white transition">LinkedIn</a></li>
-          </ul>
+
+     
+
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-gray-500 text-xs md:text-sm">
+          <div data-animate className="transition-all duration-1000 ease-out">
+            <p>© 2025 Avinya Tech & Cultural Fest. All rights reserved.</p>
+          </div>
+          <div data-animate className="transition-all duration-1000 ease-out flex gap-6">
+            <a href="#" className="hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <span className="text-gray-700">|</span>
+            <a href="#" className="hover:text-white transition-colors">
+              Terms of Service
+            </a>
+          </div>
         </div>
-        
-        <div>
-          <h3 className="text-white text-xl mb-4">Address</h3>
-          <p className="text-gray-300">
-            IIIT Dharwad Campus<br />
-            WALMI Campus, PB Road<br />
-            Dharwad - 580009
-          </p>
-        </div>
-      </div>
-      
-      <div className="mt-12 text-center text-gray-400 border-t border-gray-800 pt-8">
-        <p>&copy; {currentYear} Avinya - IIIT Dharwad. All rights reserved.</p>
       </div>
     </footer>
-  )
+  );
 }
