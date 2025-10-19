@@ -16,7 +16,7 @@ function App() {
   useLenis();
 
   return (
-    <div className='min-h-screen relative overflow-y-auto' >
+    <div className='min-h-screen relative overflow-y-auto'>
       <Menu />
       <TitleBand />
       <HeroSection />
