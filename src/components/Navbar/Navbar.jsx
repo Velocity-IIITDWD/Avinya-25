@@ -1,22 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import './Navbar.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navItems = [
-    { name: 'Home', section: 'hero' },
-    { name: 'About', section: 'about' },
-    { name: 'Events', section: 'events' },
-    { name: 'Sponsors', section: 'sponsors' },
-    { name: 'Contact', section: 'contacts' }
+    { name: 'Home', href: 'home', section: 'hero' },
+    { name: 'About', href: 'about', section: 'about' },
+    { name: 'Events', href: 'events', section: 'events' },
+    { name: 'Sponsors', href: 'sponsors', section: 'sponsors' },
+    { name: 'Contact', href: 'contact', section: 'contacts' }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      const scrollPosition = window.scrollY + 100;
+
+      navItems.forEach((item) => {
+        const section = document.getElementById(item.section);
+        if (section) {
+          const sectionTop = section.offsetTop;
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            setActiveSection(item.href);
+          }
+        }
+      });
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -24,55 +41,46 @@ function Navbar() {
   const handleNavClick = (sectionId) => {
     setIsMobileMenuOpen(false);
     
-    // Try to find the section with the given ID
     const element = document.getElementById(sectionId);
-    
     if (element) {
-      // Scroll to the element
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.warn(`Section with id "${sectionId}" not found on the page`);
     }
   };
 
   return (
     <>
-      {/* Navbar */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black/80 backdrop-blur-lg' : 'bg-transparent'
-      }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+        <div className="navbar-container">
+          <div className="navbar-content">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <a href="#" className="text-white text-2xl font-bold italic tracking-wider">
-                Avinya '25
-              </a>
+            <div className="navbar-logo">
+              <a href="#">Avinya '25</a>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex md:items-center md:space-x-8">
+            <div className="navbar-desktop">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.section)}
-                  className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors"
+                  className={`nav-item ${activeSection === item.href ? 'active' : ''}`}
                 >
                   {item.name}
+                  <span className="nav-underline"></span>
                 </button>
               ))}
             </div>
 
             {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="navbar-mobile-btn">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-gray-300 hover:text-white p-2"
+                className="menu-toggle"
               >
                 {isMobileMenuOpen ? (
-                  <X className="h-6 w-6" />
+                  <X className="menu-icon" />
                 ) : (
-                  <Menu className="h-6 w-6" />
+                  <Menu className="menu-icon" />
                 )}
               </button>
             </div>
@@ -81,13 +89,13 @@ function Navbar() {
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-gray-700">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="navbar-mobile-menu">
+            <div className="mobile-menu-items">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.section)}
-                  className="text-gray-300 hover:text-white block w-full text-left px-3 py-2 text-base font-medium border-l-2 border-transparent hover:border-white hover:bg-gray-800/50 transition-all"
+                  className={`mobile-nav-item ${activeSection === item.href ? 'active' : ''}`}
                 >
                   {item.name}
                 </button>
@@ -96,6 +104,14 @@ function Navbar() {
           </div>
         )}
       </nav>
+
+      {/* Backdrop for mobile menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="navbar-backdrop"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
     </>
   );
 }
