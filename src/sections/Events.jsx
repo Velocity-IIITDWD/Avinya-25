@@ -30,13 +30,13 @@ export default function EventsSection() {
   }
 
   return (
-    <div className="mt-40 min-h-[90vh] px-8">
+    <div className="mt-20 sm:mt-32 min-h-[90vh] px-8">
       <h1 className="text-[7vw] text-white text-center mb-16">
         <ShinyText text="EVENTS" speed={3} />
       </h1>
 
       <div className="max-w-6xl mx-auto mb-12">
-        <div className="flex justify-center gap-8">
+        <div className="flex justify-center gap-4 sm:gap-8">
           {categories.map((category) => (
             <motion.button
               key={category}
@@ -52,8 +52,8 @@ export default function EventsSection() {
               whileTap={{ scale: 0.95 }}
               className={
                 activeCategory === category
-                  ? "relative px-12 py-4 text-xl font-medium rounded-full bg-white text-black shadow-lg scale-105"
-                  : "relative px-12 py-4 text-xl font-medium rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors duration-300"
+                  ? "relative px-6 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-medium rounded-full bg-white text-black shadow-lg scale-105"
+                  : "relative px-6 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-medium rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors duration-300"
               }
             >
               <span className={
