@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import './App.css'
 import { useLenis } from './hooks/useLenis.js'
-import Menu from './components/menu/Menu.jsx'
+import Navbar from './components/Navbar/Navbar.jsx'
 import TitleBand from './sections/TitleBand.jsx'
 import HeroSection from './sections/HeroSection.jsx'
 import EventsSection from './sections/Events.jsx'
@@ -16,18 +16,16 @@ function App() {
 
   return (
     <div className='min-h-screen relative overflow-y-auto'>
-      <Menu />
+      <Navbar />
       <TitleBand />
-      <HeroSection />
-      <AboutSection containerRef={container} />
-      <EventsSection />
-      <SponsorsSection />
-      <ContactsSection />
+      <div id="hero"><HeroSection /></div>
+      <div id="about"><AboutSection containerRef={container} /></div>
+      <div id="events"><EventsSection /></div>
+      <div id="sponsors"><SponsorsSection /></div>
+      <div id="contacts"><ContactsSection /></div>
       <Footer />
     </div>
   )
 }
 
 export default App
-
-
