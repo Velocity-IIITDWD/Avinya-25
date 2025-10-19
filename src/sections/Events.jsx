@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ShinyText from '../components/AboutFest/About.jsx'
 import { motion, AnimatePresence } from 'framer-motion'
 import { eventsData, categories } from '../data/events.js'
+import './Events.css'
 
 export default function EventsSection() {
   const [activeCategory, setActiveCategory] = useState(categories[0])
@@ -51,8 +52,8 @@ export default function EventsSection() {
               whileTap={{ scale: 0.95 }}
               className={
                 activeCategory === category
-                  ? "relative px-8 py-3 text-lg font-medium rounded-full bg-white text-black shadow-lg scale-105"
-                  : "relative px-8 py-3 text-lg font-medium rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors duration-300"
+                  ? "relative px-12 py-4 text-xl font-medium rounded-full bg-white text-black shadow-lg scale-105"
+                  : "relative px-12 py-4 text-xl font-medium rounded-full bg-black/20 text-white backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors duration-300"
               }
             >
               <span className={
@@ -87,17 +88,20 @@ export default function EventsSection() {
             <motion.div
               key={event.name}
               variants={itemVariants}
-              className="group relative overflow-hidden rounded-xl backdrop-blur-sm bg-black/20 p-6 hover:bg-black/30 transition-all duration-300 hover:scale-105"
+              className={`group relative overflow-hidden rounded-xl backdrop-blur-sm bg-black/20 p-6 hover:bg-black/30 transition-all duration-300 hover:scale-105 
+                ${activeCategory === 'Technical' 
+                  ? 'electric-border-blue' 
+                  : 'electric-border-green'}`}
             >
               <div className="absolute top-4 right-4 text-4xl opacity-20 group-hover:opacity-100 transition-opacity duration-300">
                 {event.icon}
               </div>
-              <h3 className="text-white text-2xl mb-2 font-medium">{event.name}</h3>
-              <p className="text-gray-400 text-sm mb-3">{event.title}</p>
+              <h3 className="text-white text-2xl mb-2 font-semibold group-hover:text-white/95 transition-colors duration-300">{event.name}</h3>
+              <p className="text-gray-400 text-sm mb-3 group-hover:text-gray-300 transition-colors duration-300">{event.title}</p>
               <ul className="space-y-2">
                 {event.description.map((point, index) => (
-                  <li key={index} className="text-gray-300 text-sm flex items-start">
-                    <span className="text-gray-500 mr-2">•</span>
+                  <li key={index} className="text-gray-300 text-sm flex items-start group-hover:text-white/90 transition-colors duration-300">
+                    <span className="text-gray-500 mr-2 group-hover:text-gray-400">•</span>
                     {point}
                   </li>
                 ))}

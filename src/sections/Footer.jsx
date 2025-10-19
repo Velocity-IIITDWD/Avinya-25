@@ -65,7 +65,7 @@ export default function Footer() {
           
           {/* Brand Section */}
           <div data-animate className="transition-all duration-1000 ease-out">
-            <h1 className="text-4xl font-bold text-white mb-6 italic font-serif tracking-wider">
+            <h1 className="text-4xl font-bold text-white mb-6 italic tracking-wider">
               Avinya '25
             </h1>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
@@ -156,7 +156,7 @@ export default function Footer() {
                 <div>
                   <p className="text-gray-400 text-xs uppercase tracking-wide mb-1">Venue</p>
                   <p className="text-white text-sm font-semibold">
-                    College Main Campus
+                    College Campus
                   </p>
                 </div>
                 <div>
