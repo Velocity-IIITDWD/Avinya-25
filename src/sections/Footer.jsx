@@ -34,10 +34,10 @@ export default function Footer() {
   const pages=[
    
      {page:"Home",link:"#"},
-     {page:"Events",link:"#"},
-     {page:"About",link:"#"},
-     {page:"Sponsers",link:"#"},
-     {page:"Contact",link:"#"},
+     {page:"Events",link:"#events"},
+     {page:"About",link:"#about"},
+     {page:"Sponsers",link:"#sponsors"},
+     {page:"Contact",link:"#contact"},
 
 
   ]
