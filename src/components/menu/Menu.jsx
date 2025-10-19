@@ -6,8 +6,8 @@ import { useGSAP } from '@gsap/react'
 
 const menuLinks = [
     { path: "/", label: "Home" },
-    { path: "/event", label: "Events" },
     { path: "/about", label: "About" },
+    { path: "/event", label: "Events" },
     { path: "/sponsors", label: "Sponsors" },
     { path: "/contact", label: "Contact" },
 ]
