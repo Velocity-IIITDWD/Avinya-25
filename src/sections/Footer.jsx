@@ -90,7 +90,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-8 text-lg">Quick Links</h3>
             <ul className="space-y-4 flex flex-col items-center md:items-start">
               {pages.map((link) => (
-                <li key={link}>
+                <li key={link.page}>
                   <a
                     href={link.link}
                     className="text-gray-500 hover:text-white transition-all duration-300 text-sm group"
@@ -127,15 +127,15 @@ export default function Footer() {
           <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h3 className="text-white font-semibold mb-8 text-lg">Important Dates</h3>
             <ul className="space-y-3 flex flex-col items-center md:items-start">
-              {importantDates.map(({ date, event, icon }) => (
-                <li key={event} className="group w-full max-w-[200px] md:max-w-none">
-                  <p className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-xs flex items-start gap-2 group-hover:gap-3 justify-center md:justify-start">
+              {importantDates.map(({ date, event, icon }, index) => (
+                <li key={date + index} className="group w-full max-w-[200px] md:max-w-none">
+                  <div className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-xs flex items-start gap-2 group-hover:gap-3 justify-center md:justify-start">
                     <span className="text-lg flex-shrink-0">{icon}</span>
                     <div className="flex flex-col">
                       <span className="font-semibold my-1 text-gray-400 group-hover:text-white">{date}</span>
                       <span className="text-gray-600 group-hover:text-gray-400 text-xs">{event}</span>
                     </div>
-                  </p>
+                  </div>
                 </li>
               ))}
             </ul>
