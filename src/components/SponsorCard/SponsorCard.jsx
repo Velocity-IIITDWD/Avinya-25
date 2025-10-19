@@ -1,188 +1,314 @@
-import { useEffect, useId, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import './SponsorCard.css';
 
-function hexToRgba(hex, alpha = 1) {
-    if (!hex) return `rgba(0,0,0,${alpha})`;
-    let h = hex.replace('#', '');
-    if (h.length === 3) {
-        h = h
-            .split('')
-            .map(c => c + c)
-            .join('');
-    }
-    const int = parseInt(h, 16);
-    const r = (int >> 16) & 255;
-    const g = (int >> 8) & 255;
-    const b = int & 255;
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-}
+const DEFAULT_BEHIND_GRADIENT =
+    'radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y),hsla(266,100%,90%,var(--card-opacity)) 4%,hsla(266,50%,80%,calc(var(--card-opacity)*0.75)) 10%,hsla(266,25%,70%,calc(var(--card-opacity)*0.5)) 50%,hsla(266,0%,60%,0) 100%),radial-gradient(35% 52% at 55% 20%,#00ffaac4 0%,#073aff00 100%),radial-gradient(100% 100% at 50% 50%,#00c1ffff 1%,#073aff00 76%),conic-gradient(from 124deg at 50% 50%,#c137ffff 0%,#07c6ffff 40%,#07c6ffff 60%,#c137ffff 100%)';
 
-const ElectricBorder = ({ children, color = '#5227FF', speed = 1, chaos = 1, thickness = 2, className, style }) => {
-    const rawId = useId().replace(/[:]/g, '');
-    const filterId = `turbulent-displace-${rawId}`;
-    const svgRef = useRef(null);
-    const rootRef = useRef(null);
-    const strokeRef = useRef(null);
+const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)';
 
-    const updateAnim = () => {
-        const svg = svgRef.current;
-        const host = rootRef.current;
-        if (!svg || !host) return;
+const ANIMATION_CONFIG = {
+    SMOOTH_DURATION: 600,
+    INITIAL_DURATION: 1500,
+    INITIAL_X_OFFSET: 70,
+    INITIAL_Y_OFFSET: 60,
+    DEVICE_BETA_OFFSET: 20
+};
 
-        if (strokeRef.current) {
-            strokeRef.current.style.filter = `url(#${filterId})`;
-        }
+const clamp = (value, min = 0, max = 100) => Math.min(Math.max(value, min), max);
 
-        const width = Math.max(1, Math.round(host.clientWidth || host.getBoundingClientRect().width || 0));
-        const height = Math.max(1, Math.round(host.clientHeight || host.getBoundingClientRect().height || 0));
+const round = (value, precision = 3) => parseFloat(value.toFixed(precision));
 
-        const dyAnims = Array.from(svg.querySelectorAll('feOffset > animate[attributeName="dy"]'));
-        if (dyAnims.length >= 2) {
-            dyAnims[0].setAttribute('values', `${height}; 0`);
-            dyAnims[1].setAttribute('values', `0; -${height}`);
-        }
+const adjust = (value, fromMin, fromMax, toMin, toMax) =>
+    round(toMin + ((toMax - toMin) * (value - fromMin)) / (fromMax - fromMin));
 
-        const dxAnims = Array.from(svg.querySelectorAll('feOffset > animate[attributeName="dx"]'));
-        if (dxAnims.length >= 2) {
-            dxAnims[0].setAttribute('values', `${width}; 0`);
-            dxAnims[1].setAttribute('values', `0; -${width}`);
-        }
+const easeInOutCubic = x => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
 
-        const baseDur = 6;
-        const dur = Math.max(0.001, baseDur / (speed || 1));
-        [...dyAnims, ...dxAnims].forEach(a => a.setAttribute('dur', `${dur}s`));
+const ProfileCardComponent = ({
+    avatarUrl = '<Placeholder for avatar URL>',
+    iconUrl = '<Placeholder for icon URL>',
+    grainUrl = '<Placeholder for grain URL>',
+    behindGradient,
+    innerGradient,
+    showBehindGradient = true,
+    className = '',
+    enableTilt = true,
+    enableMobileTilt = false,
+    mobileTiltSensitivity = 5,
+    miniAvatarUrl,
+    name = 'Javi A. Torres',
+    title = 'Software Engineer',
+    handle = 'javicodes',
+    status = 'Online',
+    contactText = 'Contact',
+    showUserInfo = true,
+    onContactClick
+}) => {
+    const wrapRef = useRef(null);
+    const cardRef = useRef(null);
 
-        const disp = svg.querySelector('feDisplacementMap');
-        if (disp) disp.setAttribute('scale', String(30 * (chaos || 1)));
+    const animationHandlers = useMemo(() => {
+        if (!enableTilt) return null;
 
-        const filterEl = svg.querySelector(`#${CSS.escape(filterId)}`);
-        if (filterEl) {
-            filterEl.setAttribute('x', '-200%');
-            filterEl.setAttribute('y', '-200%');
-            filterEl.setAttribute('width', '500%');
-            filterEl.setAttribute('height', '500%');
-        }
+        let rafId = null;
 
-        requestAnimationFrame(() => {
-            [...dyAnims, ...dxAnims].forEach(a => {
-                if (typeof a.beginElement === 'function') {
-                    try {
-                        a.beginElement();
-                    } catch {
-                        console.warn('ElectricBorder: beginElement failed');
-                    }
-                }
+        const updateCardTransform = (offsetX, offsetY, card, wrap) => {
+            const width = card.clientWidth;
+            const height = card.clientHeight;
+
+            const percentX = clamp((100 / width) * offsetX);
+            const percentY = clamp((100 / height) * offsetY);
+
+            const centerX = percentX - 50;
+            const centerY = percentY - 50;
+
+            const properties = {
+                '--pointer-x': `${percentX}%`,
+                '--pointer-y': `${percentY}%`,
+                '--background-x': `${adjust(percentX, 0, 100, 35, 65)}%`,
+                '--background-y': `${adjust(percentY, 0, 100, 35, 65)}%`,
+                '--pointer-from-center': `${clamp(Math.hypot(percentY - 50, percentX - 50) / 50, 0, 1)}`,
+                '--pointer-from-top': `${percentY / 100}`,
+                '--pointer-from-left': `${percentX / 100}`,
+                '--rotate-x': `${round(-(centerX / 5))}deg`,
+                '--rotate-y': `${round(centerY / 4)}deg`
+            };
+
+            Object.entries(properties).forEach(([property, value]) => {
+                wrap.style.setProperty(property, value);
             });
-        });
-    };
+        };
+
+        const createSmoothAnimation = (duration, startX, startY, card, wrap) => {
+            const startTime = performance.now();
+            const targetX = wrap.clientWidth / 2;
+            const targetY = wrap.clientHeight / 2;
+
+            const animationLoop = currentTime => {
+                const elapsed = currentTime - startTime;
+                const progress = clamp(elapsed / duration);
+                const easedProgress = easeInOutCubic(progress);
+
+                const currentX = adjust(easedProgress, 0, 1, startX, targetX);
+                const currentY = adjust(easedProgress, 0, 1, startY, targetY);
+
+                updateCardTransform(currentX, currentY, card, wrap);
+
+                if (progress < 1) {
+                    rafId = requestAnimationFrame(animationLoop);
+                }
+            };
+
+            rafId = requestAnimationFrame(animationLoop);
+        };
+
+        return {
+            updateCardTransform,
+            createSmoothAnimation,
+            cancelAnimation: () => {
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
+            }
+        };
+    }, [enableTilt]);
+
+    const handlePointerMove = useCallback(
+        event => {
+            const card = cardRef.current;
+            const wrap = wrapRef.current;
+
+            if (!card || !wrap || !animationHandlers) return;
+
+            const rect = card.getBoundingClientRect();
+            animationHandlers.updateCardTransform(event.clientX - rect.left, event.clientY - rect.top, card, wrap);
+        },
+        [animationHandlers]
+    );
+
+    const handlePointerEnter = useCallback(() => {
+        const card = cardRef.current;
+        const wrap = wrapRef.current;
+
+        if (!card || !wrap || !animationHandlers) return;
+
+        animationHandlers.cancelAnimation();
+        wrap.classList.add('active');
+        card.classList.add('active');
+    }, [animationHandlers]);
+
+    const handlePointerLeave = useCallback(
+        event => {
+            const card = cardRef.current;
+            const wrap = wrapRef.current;
+
+            if (!card || !wrap || !animationHandlers) return;
+
+            animationHandlers.createSmoothAnimation(
+                ANIMATION_CONFIG.SMOOTH_DURATION,
+                event.offsetX,
+                event.offsetY,
+                card,
+                wrap
+            );
+            wrap.classList.remove('active');
+            card.classList.remove('active');
+        },
+        [animationHandlers]
+    );
+
+    const handleDeviceOrientation = useCallback(
+        event => {
+            const card = cardRef.current;
+            const wrap = wrapRef.current;
+
+            if (!card || !wrap || !animationHandlers) return;
+
+            const { beta, gamma } = event;
+            if (!beta || !gamma) return;
+
+            animationHandlers.updateCardTransform(
+                card.clientHeight / 2 + gamma * mobileTiltSensitivity,
+                card.clientWidth / 2 + (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
+                card,
+                wrap
+            );
+        },
+        [animationHandlers, mobileTiltSensitivity]
+    );
 
     useEffect(() => {
-        updateAnim();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [speed, chaos]);
+        if (!enableTilt || !animationHandlers) return;
 
-    useLayoutEffect(() => {
-        if (!rootRef.current) return;
-        const ro = new ResizeObserver(() => updateAnim());
-        ro.observe(rootRef.current);
-        updateAnim();
-        return () => ro.disconnect();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        const card = cardRef.current;
+        const wrap = wrapRef.current;
 
-    const inheritRadius = {
-        borderRadius: style?.borderRadius ?? 'inherit'
-    };
+        if (!card || !wrap) return;
 
-    const strokeStyle = {
-        ...inheritRadius,
-        borderWidth: thickness,
-        borderStyle: 'solid',
-        borderColor: color
-    };
+        const pointerMoveHandler = handlePointerMove;
+        const pointerEnterHandler = handlePointerEnter;
+        const pointerLeaveHandler = handlePointerLeave;
+        const deviceOrientationHandler = handleDeviceOrientation;
 
-    const glow1Style = {
-        ...inheritRadius,
-        borderWidth: thickness,
-        borderStyle: 'solid',
-        borderColor: hexToRgba(color, 0.6),
-        filter: `blur(${0.5 + thickness * 0.25}px)`,
-        opacity: 0.5
-    };
+        const handleClick = () => {
+            if (!enableMobileTilt || location.protocol !== 'https:') return;
+            if (typeof window.DeviceMotionEvent.requestPermission === 'function') {
+                window.DeviceMotionEvent.requestPermission()
+                    .then(state => {
+                        if (state === 'granted') {
+                            window.addEventListener('deviceorientation', deviceOrientationHandler);
+                        }
+                    })
+                    .catch(err => console.error(err));
+            } else {
+                window.addEventListener('deviceorientation', deviceOrientationHandler);
+            }
+        };
 
-    const glow2Style = {
-        ...inheritRadius,
-        borderWidth: thickness,
-        borderStyle: 'solid',
-        borderColor: color,
-        filter: `blur(${2 + thickness * 0.5}px)`,
-        opacity: 0.5
-    };
+        card.addEventListener('pointerenter', pointerEnterHandler);
+        card.addEventListener('pointermove', pointerMoveHandler);
+        card.addEventListener('pointerleave', pointerLeaveHandler);
+        card.addEventListener('click', handleClick);
 
-    const bgGlowStyle = {
-        ...inheritRadius,
-        transform: 'scale(1.08)',
-        filter: 'blur(32px)',
-        opacity: 0.3,
-        zIndex: -1,
-        background: `linear-gradient(-30deg, ${hexToRgba(color, 0.8)}, transparent, ${color})`
-    };
+        const initialX = wrap.clientWidth - ANIMATION_CONFIG.INITIAL_X_OFFSET;
+        const initialY = ANIMATION_CONFIG.INITIAL_Y_OFFSET;
+
+        animationHandlers.updateCardTransform(initialX, initialY, card, wrap);
+        animationHandlers.createSmoothAnimation(ANIMATION_CONFIG.INITIAL_DURATION, initialX, initialY, card, wrap);
+
+        return () => {
+            card.removeEventListener('pointerenter', pointerEnterHandler);
+            card.removeEventListener('pointermove', pointerMoveHandler);
+            card.removeEventListener('pointerleave', pointerLeaveHandler);
+            card.removeEventListener('click', handleClick);
+            window.removeEventListener('deviceorientation', deviceOrientationHandler);
+            animationHandlers.cancelAnimation();
+        };
+    }, [
+        enableTilt,
+        enableMobileTilt,
+        animationHandlers,
+        handlePointerMove,
+        handlePointerEnter,
+        handlePointerLeave,
+        handleDeviceOrientation
+    ]);
+
+    const cardStyle = useMemo(
+        () => ({
+            '--icon': iconUrl ? `url(${iconUrl})` : 'none',
+            '--grain': grainUrl ? `url(${grainUrl})` : 'none',
+            '--behind-gradient': showBehindGradient ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT) : 'none',
+            '--inner-gradient': innerGradient ?? DEFAULT_INNER_GRADIENT
+        }),
+        [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    );
+
+    const handleContactClick = useCallback(() => {
+        onContactClick?.();
+    }, [onContactClick]);
 
     return (
-        <div ref={rootRef} className={'relative isolate ' + (className ?? '')} style={style}>
-            <svg
-                ref={svgRef}
-                className="fixed -left-[10000px] -top-[10000px] w-[10px] h-[10px] opacity-[0.001] pointer-events-none"
-                aria-hidden
-                focusable="false"
-            >
-                <defs>
-                    <filter id={filterId} colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-                        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
-                        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
-                            <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                        </feOffset>
-
-                        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
-                        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
-                            <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                        </feOffset>
-
-                        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
-                        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
-                            <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                        </feOffset>
-
-                        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
-                        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
-                            <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
-                        </feOffset>
-
-                        <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
-                        <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
-                        <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
-                        <feDisplacementMap
-                            in="SourceGraphic"
-                            in2="combinedNoise"
-                            scale="30"
-                            xChannelSelector="R"
-                            yChannelSelector="B"
+        <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
+            <section ref={cardRef} className="pc-card">
+                <div className="pc-inside">
+                    <div className="pc-shine" />
+                    <div className="pc-glare" />
+                    <div className="pc-content pc-avatar-content">
+                        <img
+                            className="avatar"
+                            src={avatarUrl}
+                            alt={`${name || 'User'} avatar`}
+                            loading="lazy"
+                            onError={e => {
+                                const target = e.target;
+                                target.style.display = 'none';
+                            }}
                         />
-                    </filter>
-                </defs>
-            </svg>
-
-            <div className="absolute inset-0 pointer-events-none" style={inheritRadius}>
-                <div ref={strokeRef} className="absolute inset-0 box-border" style={strokeStyle} />
-                <div className="absolute inset-0 box-border" style={glow1Style} />
-                <div className="absolute inset-0 box-border" style={glow2Style} />
-                <div className="absolute inset-0" style={bgGlowStyle} />
-            </div>
-
-            <div className="relative" style={inheritRadius}>
-                {children}
-            </div>
+                        {showUserInfo && (
+                            <div className="pc-user-info">
+                                <div className="pc-user-details">
+                                    <div className="pc-mini-avatar">
+                                        <img
+                                            src={miniAvatarUrl || avatarUrl}
+                                            alt={`${name || 'User'} mini avatar`}
+                                            loading="lazy"
+                                            onError={e => {
+                                                const target = e.target;
+                                                target.style.opacity = '0.5';
+                                                target.src = avatarUrl;
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="pc-user-text">
+                                        <div className="pc-handle">@{handle}</div>
+                                        <div className="pc-status">{status}</div>
+                                    </div>
+                                </div>
+                                <button
+                                    className="pc-contact-btn"
+                                    onClick={handleContactClick}
+                                    style={{ pointerEvents: 'auto' }}
+                                    type="button"
+                                    aria-label={`Contact ${name || 'user'}`}
+                                >
+                                    {contactText}
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="pc-content">
+                        <div className="pc-details">
+                            <h3>{name}</h3>
+                            <p>{title}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
 
-export default ElectricBorder;
+const ProfileCard = React.memo(ProfileCardComponent);
+
+export default ProfileCard;
