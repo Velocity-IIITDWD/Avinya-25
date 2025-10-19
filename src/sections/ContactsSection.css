@@ -1,0 +1,16 @@
+.icon-container {
+  transition: all 0.3s ease;
+}
+
+a:hover .icon-container {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.social-link {
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+}
