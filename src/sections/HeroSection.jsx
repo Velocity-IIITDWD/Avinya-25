@@ -6,11 +6,11 @@ import GradientText from '../components/GradientText/Gradient.jsx'
 export default function HeroSection() {
   return (
     <div className="relative">
-      <div className="w-[80vw] h-[60vh] sm:h-screen mx-auto">
-        <Hero className="w-full h-full" />
+      <div className="w-[80vw] h-[60vh] sm:h-screen mx-auto mt-20">
+        <Hero className=" h-full" />
       </div>
-      
-      <h1 className='text-[5vw] sm:text-[9vw] z-[1] w-screen text-center text-white absolute top-[55%] sm:top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bebas-neue-regular'>
+
+      <h1 className='text-[5vw] sm:text-[9vw] z-[1] w-screen text-center text-white absolute top-[100%] sm:top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bebas-neue-regular'>
         <span className="inline-block w-full rounded-xl backdrop-blur-md bg-black/30 text-white text-[6vw] jost-regular">
           <TrueFocus
             sentence="TECHNO Cultural"

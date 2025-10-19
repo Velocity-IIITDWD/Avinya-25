@@ -4,7 +4,7 @@ import ShinyText from '../components/AboutFest/About.jsx'
 
 export default function AboutSection({ containerRef }) {
   return (
-    <div className='mt-40 min-h-[90vh] sm:mt-30 m-auto px-4'>
+    <div className='mt-40 h-auto sm:mt-30 m-auto px-4'>
       <h1 className='text-[7vw] text-white text-center mb-16'>
         <ShinyText text="ABOUT FEST" speed={3} />
       </h1>
