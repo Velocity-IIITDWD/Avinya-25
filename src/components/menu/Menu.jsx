@@ -1,4 +1,3 @@
-import React from 'react'
 import './menu.css'
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router'
@@ -9,8 +8,8 @@ const menuLinks = [
     { path: "/", label: "Home" },
     { path: "/event", label: "Events" },
     { path: "/about", label: "About" },
-    { path: "/contact", label: "Contact" },
     { path: "/sponsors", label: "Sponsors" },
+    { path: "/contact", label: "Contact" },
 ]
 
 const Menu = () => {
