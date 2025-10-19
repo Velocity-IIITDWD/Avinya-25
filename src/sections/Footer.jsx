@@ -103,7 +103,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-8 text-lg">Event Categories</h3>
             <ul className="space-y-4">
               {eventCategories.map(({ Icon, label, color }) => (
-                <li key={label}>
+                <li key={label} aria-label={Icon}>
                   <p className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-sm group flex items-center justify-center md:justify-start gap-2">
                     <Icon size={16} className={`${color} group-hover:scale-110 transition-transform`} />
                     <span className="group-hover:translate-x-1 inline-block transition-transform">
