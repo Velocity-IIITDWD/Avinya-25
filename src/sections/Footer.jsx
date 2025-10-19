@@ -64,14 +64,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           
           {/* Brand Section */}
-          <div data-animate className="transition-all duration-1000 ease-out">
+          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h1 className="text-4xl font-bold font-mont text-white mb-6 italic tracking-wider">
               Avinya '25
             </h1>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
               The premier tech and cultural fest bringing together innovation and tradition.
             </p>
-            <div className="flex gap-5">
+            <div className="flex gap-5 justify-center md:justify-start">
               {socialLinks.map(({ label }) => (
                 <a
                   key={label}
@@ -86,9 +86,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div data-animate className="transition-all duration-1000 ease-out">
+          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h3 className="text-white font-semibold mb-8 text-lg">Quick Links</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex flex-col items-center md:items-start">
               {pages.map((link) => (
                 <li key={link}>
                   <a
@@ -105,13 +105,12 @@ export default function Footer() {
           </div>
 
           {/* Event Categories */}
-          <div data-animate className="transition-all duration-1000 ease-out">
+          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h3 className="text-white font-semibold mb-8 text-lg">Event Categories</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex flex-col items-center md:items-start">
               {eventCategories.map(({ Icon, label, color }) => (
                 <li key={label} aria-label={Icon}>
                   <p
-                   
                     className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-sm group flex items-center gap-2"
                   >
                     <Icon size={16} className={`${color} group-hover:scale-110 transition-transform`} />
@@ -125,15 +124,12 @@ export default function Footer() {
           </div>
 
           {/* Important Dates */}
-          <div data-animate className="transition-all duration-1000 ease-out">
+          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h3 className="text-white font-semibold mb-8 text-lg">Important Dates</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {importantDates.map(({ date, event, icon }) => (
-                <li key={event} className="group">
-                  <p
-                  
-                    className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-xs flex items-start gap-2 group-hover:gap-3"
-                  >
+                <li key={event} className="group w-full max-w-[200px] md:max-w-none">
+                  <p className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-xs flex items-start gap-2 group-hover:gap-3 justify-center md:justify-start">
                     <span className="text-lg flex-shrink-0">{icon}</span>
                     <div className="flex flex-col">
                       <span className="font-semibold my-1 text-gray-400 group-hover:text-white">{date}</span>
@@ -146,8 +142,8 @@ export default function Footer() {
           </div>
 
           {/* Location */}
-          <div data-animate className="transition-all duration-1000 ease-out">
-            <h3 className="text-white font-semibold mb-8 text-lg flex items-center gap-2">
+          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
+            <h3 className="text-white font-semibold mb-8 text-lg flex items-center gap-2 justify-center md:justify-start">
               <MapPin size={20} />
               Location
             </h3>
@@ -165,7 +161,6 @@ export default function Footer() {
                     IIIT Dharwad Campus, Ittigatti Road, Near Sattur Colony, Dharwad 580009, Karnataka
                   </p>
                 </div>
-               
               </div>
             </div>
           </div>
