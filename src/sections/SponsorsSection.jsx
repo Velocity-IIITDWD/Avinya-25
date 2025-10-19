@@ -54,16 +54,16 @@ export default function SponsorsSection() {
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-20 mt-20 sm:mt-15 h-auto">
-          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[13vw]' src="/pvr.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw]  sm:h-[13vw]' src="/mishra.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[13vw]' src="/pizza.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
             <img className='h-[30vw] sm:h-[15vw] align-middle' src="/pop.png" alt="" />
           </div>
         </div>

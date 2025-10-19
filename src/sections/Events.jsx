@@ -19,8 +19,8 @@ export default function EventsSection() {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    show: { 
-      y: 0, 
+    show: {
+      y: 0,
       opacity: 1,
       transition: {
         type: "spring",
@@ -43,10 +43,10 @@ export default function EventsSection() {
               onClick={() => setActiveCategory(category)}
               whileHover={
                 activeCategory !== category
-                  ? { 
-                      scale: 1.05,
-                      boxShadow: "0 0 15px rgba(255, 255, 255, 0.3)",
-                    }
+                  ? {
+                    scale: 1.05,
+                    boxShadow: "0 0 15px rgba(255, 255, 255, 0.3)",
+                  }
                   : {}
               }
               whileTap={{ scale: 0.95 }}
@@ -74,7 +74,7 @@ export default function EventsSection() {
           ))}
         </div>
       </div>
-      
+
       <AnimatePresence mode="wait">
         <motion.div
           key={activeCategory}
