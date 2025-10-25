@@ -10,7 +10,7 @@ export const techEventsData = [
     participants: "200-300 participants (Inter-college)",
     requirements: "WIFI Access, M-block, 120 Seaters",
     duration: "8 Hours",
-    icon: "💻"
+    register: "/"
   },
   {
     name: "Startup Conclave",
@@ -23,7 +23,7 @@ export const techEventsData = [
     participants: "80 – 200 (Startup Founders & Entrepreneurs and Investors & Mentors)",
     requirements: "Pi-Block, Senate Hall, Presentation rooms",
     duration: "8 – 10 Hours",
-    icon: "🚀"
+    register: "/"
   },
   {
     name: "Integrating Large Language Models on FPGAs",
@@ -35,7 +35,7 @@ export const techEventsData = [
     participants: "100",
     requirements: "FPGA Boards, Classrooms, 120-Seater",
     duration: "6 Hours",
-    icon: "🧠"
+    register: "/"
   },
   {
     name: "Mega-Rush",
@@ -47,7 +47,7 @@ export const techEventsData = [
     participants: "600 (Outside participants are also allowed)",
     requirements: "WIFI Access, M-block and 120-Seaters",
     duration: "10 hours",
-    icon: "🎮"
+    register: "/"
   },
   {
     name: "Cybersecurity Workshop",
@@ -59,7 +59,7 @@ export const techEventsData = [
     participants: "150 (Outside participants are also allowed)",
     requirements: "WIFI Access and 120-Seaters",
     duration: "4 hours",
-    icon: "🔒"
+    register: "/"
   },
   {
     name: "RTL2GDSII Competition",
@@ -71,6 +71,6 @@ export const techEventsData = [
     participants: "150 (Outside participants are also allowed)",
     requirements: "WIFI Access and 120-Seaters",
     duration: "7 hours",
-    icon: "⚡"
+    register: "/"
   }
 ];
