@@ -1,10 +1,6 @@
 import React from 'react'
 import ShinyText from '../components/AboutFest/About.jsx'
 import SponsorText from '../components/SponsorText/SponsorText.jsx'
-import ElectricBorder from '../components/SponsorCard/SponsorCard.jsx'
-import ProfileCard from '../components/SponsorCard/SponsorCard.jsx'
-
-
 
 export default function SponsorsSection() {
   return (
@@ -12,7 +8,13 @@ export default function SponsorsSection() {
       <div className='mt-40 min-h-[60vh] sm:mt-30 sm:mb-40 m-auto px-8'>
         <h1 className='text-[4vw] text-white border-t-1 pt-5 border-white text-center mb-16 '>
           {/* <ShinyText text="SPONSORS" className="text-[7vw] text-white text-center mb-16" speed={3} /> */}
-          <SponsorText text="SPONSORS" speed={3} />
+          <div className='w-full flex flex-col justify-between'>
+            <SponsorText text="Previous" className='w-[60vw] sm:w-[50vw]' speed={3} />
+            <div className='flex flex-row mt-5 sm:mt-0'>
+              <div className='w-[50vw] sm:w-[62vw]'></div>
+              <SponsorText text="SPONSORS" className='w-[50vw] sm:w-[55vw]' speed={3} />
+            </div>
+          </div>
         </h1>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-20 mt-15 h-auto">
           {/* Sponsor grid placeholders - replace with actual sponsor components */}
@@ -53,18 +55,18 @@ export default function SponsorsSection() {
             <img className='sm:h-[13vw]' src="/Nexus.png" alt="" />
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-20 mt-20 sm:mt-15 h-auto">
-          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-[30vw] sm:h-[13vw]' src="/pvr.png" alt="" />
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 mt-15 sm:mt-20 h-auto">
+          <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+            <img className='h-auto sm:h-[13vw]' src="/pvr.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-[30vw]  sm:h-[13vw]' src="/mishra.png" alt="" />
+          <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+            <img className='h-auto  sm:h-[13vw]' src="/mishra.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-[30vw] sm:h-[13vw]' src="/pizza.png" alt="" />
+          <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+            <img className='h-auto sm:h-[13vw]' src="/pizza.png" alt="" />
           </div>
-          <div className='h-[22vh] sm:h-[25vh] w-auto border-white p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-[30vw] sm:h-[15vw] align-middle' src="/pop.png" alt="" />
+          <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
+            <img className='h-auto sm:h-[15vw] align-middle' src="/pop.png" alt="" />
           </div>
         </div>
       </div >

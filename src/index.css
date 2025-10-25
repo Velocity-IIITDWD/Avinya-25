@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap');
 @import "tailwindcss";
 
 * {
@@ -19,6 +19,12 @@
   font-style: normal;
 }
 
+.font-pacifico {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -33,9 +39,10 @@ body {
   border-style: solid;
   padding: 5px;
 }
-.font-mont{
+
+.font-mont {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight:500;
+  font-weight: 500;
   font-style: normal;
 }

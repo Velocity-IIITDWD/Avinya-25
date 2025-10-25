@@ -40,7 +40,7 @@ function Navbar() {
 
   const handleNavClick = (sectionId) => {
     setIsMobileMenuOpen(false);
-    
+
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -53,8 +53,8 @@ function Navbar() {
         <div className="navbar-container">
           <div className="navbar-content">
             {/* Logo */}
-            <div className="navbar-logo">
-              <a href="#">Avinya '25</a>
+            <div className="navbar-logo font-mont">
+              <a href="#">AVINYA '25</a>
             </div>
 
             {/* Desktop Navigation */}
@@ -107,7 +107,7 @@ function Navbar() {
 
       {/* Backdrop for mobile menu */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="navbar-backdrop"
           onClick={() => setIsMobileMenuOpen(false)}
         />
