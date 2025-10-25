@@ -21,18 +21,19 @@ export const contactsData = {
   ],
   socials: [
     {
-      platform: "Instagram",
-      handle: "@avinya_iiitdh",
-      icon: "📸",
+      platform: "IIIT Dharwad",
       gradient: "from-purple-500 via-pink-500 to-orange-500",
-      link: "https://instagram.com/avinya_iiitdh"
+      link: "https://iiitdwd.ac.in/"
     },
     {
-      platform: "LinkedIn",
-      handle: "IIIT Dharwad Avinya",
-      icon: "💼",
+      platform: "Instagram",
       gradient: "from-blue-600 to-blue-800",
-      link: "https://linkedin.com/company/iiit-dharwad-avinya"
+      link: "https://www.instagram.com/iiit.dharwad/"
+    },
+    {
+      platform: "Instagram Iridescence",
+      gradient: "from-blue-600 to-blue-800",
+      link: "https://www.instagram.com/iridescence.iiitdwd/"
     }
   ]
 }

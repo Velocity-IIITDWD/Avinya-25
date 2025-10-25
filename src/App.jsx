@@ -1,30 +1,28 @@
-import { useRef } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { useLocomotiveScroll } from './hooks/useLocomotiveScroll.js'
 import Navbar from './components/Navbar/Navbar.jsx'
-import TitleBand from './sections/TitleBand.jsx'
-import HeroSection from './sections/HeroSection.jsx'
-import EventsSection from './sections/Events.jsx'
-import AboutSection from './sections/AboutSection.jsx'
-import SponsorsSection from './sections/SponsorsSection.jsx'
-import ContactsSection from './sections/ContactsSection.jsx'
-import Footer from './sections/Footer.jsx'
+import HomePage from './pages/HomePage.jsx'
+import EventsPage from './pages/EventsPage.jsx'
+import ArtistsPage from './pages/ArtistsPage.jsx'
+import TeamPage from './pages/TeamPage.jsx'
 
 function App() {
   const { scrollRef, locomotiveRef } = useLocomotiveScroll();
   return (
     <div ref={scrollRef} data-scroll-container >
-      <div className='min-h-screen relative overflow-y-auto' data-scroll-section>
-        <Navbar />
-        <TitleBand />
-        <div id="hero"><HeroSection /></div>
-        <div id="about"><AboutSection scrollContainerRef={scrollRef} /></div>
-        <div id="events"><EventsSection /></div>
-        <div id="sponsors"><SponsorsSection /></div>
-        <div id="contacts"><ContactsSection /></div>
-        <Footer />
-      </div>
-    </div >
+      <Router>
+        <div className='min-h-screen relative' data-scroll-section>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/artists" element={<ArtistsPage />} />
+            <Route path="/team" element={<TeamPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   )
 }
 

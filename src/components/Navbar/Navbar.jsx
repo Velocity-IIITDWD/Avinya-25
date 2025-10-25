@@ -1,89 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { name: 'Home', href: 'home', section: 'hero' },
-    { name: 'About', href: 'about', section: 'about' },
-    { name: 'Events', href: 'events', section: 'events' },
-    { name: 'Sponsors', href: 'sponsors', section: 'sponsors' },
-    { name: 'Contact', href: 'contact', section: 'contacts' }
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-
-      const scrollPosition = window.scrollY + 100;
-
-      navItems.forEach((item) => {
-        const section = document.getElementById(item.section);
-        if (section) {
-          const sectionTop = section.offsetTop;
-          const sectionBottom = sectionTop + section.offsetHeight;
-
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            setActiveSection(item.href);
-          }
-        }
-      });
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (sectionId) => {
-    setIsMobileMenuOpen(false);
-
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Events', path: '/events' },
+    { name: 'Artists', path: '/artists' },
+    { name: 'Team', path: '/team' },
+  ];
 
   return (
-    <>
-      <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-        <div className="navbar-container">
-          <div className="navbar-content">
-            {/* Logo */}
-            <div className="navbar-logo font-mont">
-              <a href="#">AVINYA '25</a>
-            </div>
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="navbar-container">
+        <div className="navbar-content">
+          {/* Logo */}
+          <div className="navbar-logo">
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Avinya '25</Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            <div className="navbar-desktop">
-              {navItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavClick(item.section)}
-                  className={`nav-item ${activeSection === item.href ? 'active' : ''}`}
-                >
-                  {item.name}
-                  <span className="nav-underline"></span>
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="navbar-mobile-btn">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="menu-toggle"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="menu-icon" />
-                ) : (
-                  <Menu className="menu-icon" />
-                )}
-              </button>
-            </div>
+          {/* Desktop Navigation */}
+          <div className="navbar-desktop">
+            <Link to="/" className="nav-item">
+              Home
+              <span className="nav-underline"></span>
+            </Link>
+            <Link to="/events" className="nav-item">
+              Events
+              <span className="nav-underline"></span>
+            </Link>
+            <Link to="/artists" className="nav-item">
+              Artists
+              <span className="nav-underline"></span>
+            </Link>
+            <Link to="/team" className="nav-item">
+              Team
+              <span className="nav-underline"></span>
+            </Link>
+          </div>
+        </div>
+          {/* Mobile menu toggle */}
+          <div className="navbar-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
           </div>
         </div>
 
@@ -92,19 +64,19 @@ function Navbar() {
           <div className="navbar-mobile-menu">
             <div className="mobile-menu-items">
               {navItems.map((item) => (
-                <button
+                <Link
                   key={item.name}
-                  onClick={() => handleNavClick(item.section)}
-                  className={`mobile-nav-item ${activeSection === item.href ? 'active' : ''}`}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mobile-nav-item"
                 >
                   {item.name}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
         )}
-      </nav>
-
+      </div>
       {/* Backdrop for mobile menu */}
       {isMobileMenuOpen && (
         <div
@@ -112,7 +84,7 @@ function Navbar() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-    </>
+    </nav>
   );
 }
 
