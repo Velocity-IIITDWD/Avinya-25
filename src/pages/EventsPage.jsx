@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { techEventsData } from '../data/tech_events.js';
 import { culturalEventsData } from '../data/cultural_events.js';
-import { useLenis } from '../hooks/useLenis.js';
 
 function EventCard({ event }) {
   const handleRegister = () => {
@@ -43,7 +42,6 @@ function EventCard({ event }) {
 
 function EventsPage() {
   const [activeTab, setActiveTab] = useState('tech');
-  useLenis();
 
   return (
     <div className="min-h-screen bg-black text-white py-20">
