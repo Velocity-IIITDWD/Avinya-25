@@ -47,13 +47,11 @@ export default function Footer() {
   const eventCategories = [
     { Icon: Code, label: 'Tech Events', color: 'text-blue-400' },
     { Icon: Music, label: 'Cultural Events', color: 'text-pink-400' },
-    { Icon: Zap, label: 'Workshops', color: 'text-yellow-400' },
-    { Icon: Users, label: 'Hackathons', color: 'text-green-400' },
   ];
 
   const importantDates = [
-    { date: 'Oct 30, 2024', event: '', icon: '🗓️' },
-    { date: 'Nov 1, 2025', event: '', icon: '🗓️' },
+    { date: 'Nov 7, 2025', event: '', icon: '🗓️' },
+    { date: 'Nov 8, 2025', event: '', icon: '🗓️' },
    
   ];
 
