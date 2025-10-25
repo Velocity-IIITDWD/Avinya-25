@@ -69,15 +69,19 @@ export default function ContactsSection() {
               <a href={socials[0].link} target="_blank" rel="noopener noreferrer" 
                  className="block bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-lg p-3 hover:from-purple-500/30 hover:to-pink-500/30 transition-all social-link">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{socials[0].icon}</span>
-                  <span className="text-white/80">{socials[0].handle}</span>
+                  <span className="text-white/80">{socials[0].platform}</span>
                 </div>
               </a>
               <a href={socials[1].link} target="_blank" rel="noopener noreferrer"
                  className="block bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-lg p-3 hover:from-blue-600/30 hover:to-blue-800/30 transition-all social-link">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{socials[1].icon}</span>
-                  <span className="text-white/80">IIIT Dharwad Avinya</span>
+                  <span className="text-white/80">{socials[1].platform}</span>
+                </div>
+              </a>
+              <a href={socials[2].link} target="_blank" rel="noopener noreferrer"
+                 className="block bg-gradient-to-br from-blue-600/20 to-blue-800/20 rounded-lg p-3 hover:from-blue-600/30 hover:to-blue-800/30 transition-all social-link">
+                <div className="flex items-center gap-3">
+                  <span className="text-white/80">{socials[2].platform}</span>
                 </div>
               </a>
             </div>
