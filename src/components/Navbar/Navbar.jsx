@@ -28,7 +28,9 @@ function Navbar() {
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Avinya '25</Link>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+              Avinya '25
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -50,14 +52,17 @@ function Navbar() {
               <span className="nav-underline"></span>
             </Link>
           </div>
-        </div>
+
           {/* Mobile menu toggle */}
-          <div className="navbar-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <div
+            className="navbar-mobile-toggle"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </div>
-        </div>
+        </div> {/* ✅ Close navbar-content */}
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
@@ -76,7 +81,8 @@ function Navbar() {
             </div>
           </div>
         )}
-      </div>
+      </div> {/* ✅ Close navbar-container */}
+
       {/* Backdrop for mobile menu */}
       {isMobileMenuOpen && (
         <div

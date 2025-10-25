@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router'
 import './App.css'
 import { useLocomotiveScroll } from './hooks/useLocomotiveScroll.js'
 import Navbar from './components/Navbar/Navbar.jsx'
@@ -11,18 +11,18 @@ function App() {
   const { scrollRef, locomotiveRef } = useLocomotiveScroll();
   return (
     <div ref={scrollRef} data-scroll-container >
-      <Router>
-        <div className='min-h-screen relative' data-scroll-section>
+      <div className='min-h-screen relative' data-scroll-section>
+        <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<HomePage container={scrollRef} />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/artists" element={<ArtistsPage />} />
             <Route path="/team" element={<TeamPage />} />
           </Routes>
-        </div>
-      </Router>
-    </div>
+        </Router >
+      </div>
+    </div >
   )
 }
 
