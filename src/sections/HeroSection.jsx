@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <div className="relative">
       <div className="w-[80vw] h-[60vh] sm:h-screen mx-auto mt-20">
-        <Hero className=" h-full" />
+        <Hero className="h-1/2 sm:h-full" />
       </div>
 
       <h1 className='text-[5vw] sm:text-[9vw] z-[1] w-screen text-center text-white absolute top-[100%] sm:top-[90%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bebas-neue-regular'>

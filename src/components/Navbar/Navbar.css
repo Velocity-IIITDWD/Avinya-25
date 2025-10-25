@@ -34,8 +34,7 @@
 .navbar-logo a {
   color: white;
   font-size: 1.5rem;
-  font-weight: bold;
-  font-style: italic;
+  font-weight: 300;
   letter-spacing: 0.05em;
   text-decoration: none;
   cursor: pointer;
@@ -147,6 +146,7 @@
     opacity: 0;
     max-height: 0;
   }
+
   to {
     opacity: 1;
     max-height: 500px;
@@ -201,6 +201,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }

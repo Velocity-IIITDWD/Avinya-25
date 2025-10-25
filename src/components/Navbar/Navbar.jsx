@@ -4,6 +4,7 @@ import './Navbar.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +15,20 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Events', path: '/events' },
+    { name: 'Artists', path: '/artists' },
+    { name: 'Team', path: '/team' },
+  ];
+
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <Link to="/">Avinya '25</Link>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Avinya '25</Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -43,7 +51,39 @@ function Navbar() {
             </Link>
           </div>
         </div>
+          {/* Mobile menu toggle */}
+          <div className="navbar-mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+            <span className="icon-bar"></span>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="navbar-mobile-menu">
+            <div className="mobile-menu-items">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mobile-nav-item"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
+      {/* Backdrop for mobile menu */}
+      {isMobileMenuOpen && (
+        <div
+          className="navbar-backdrop"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
     </nav>
   );
 }
