@@ -8,10 +8,8 @@ export const culturalEventsData = [
       "Professional sound equipment",
       "Guest performance by renowned artists"
     ],
-    participants: "100-150 participants",
-    requirements: "Audio equipment, Stage setup",
     duration: "6 Hours",
-    icon: "🎵"
+    register: "/"
   },
   {
     name: "Nritya",
@@ -22,10 +20,8 @@ export const culturalEventsData = [
       "Professional stage and lighting",
       "Choreography workshops included"
     ],
-    participants: "80-120 participants",
-    requirements: "Stage, Lighting equipment",
     duration: "5 Hours",
-    icon: "💃"
+    register: "/"
   },
   {
     name: "Natya",
@@ -36,10 +32,8 @@ export const culturalEventsData = [
       "Technical support provided",
       "Best actor/actress awards"
     ],
-    participants: "60-100 participants",
-    requirements: "Stage, Props, Sound system",
     duration: "4 Hours",
-    icon: "🎭"
+    register: "/"
   },
   {
     name: "Art Vista",
@@ -50,10 +44,8 @@ export const culturalEventsData = [
       "Exhibition space for all participants",
       "Graphic design workshops"
     ],
-    participants: "50-80 participants",
-    requirements: "Exhibition space, Display boards",
     duration: "8 Hours",
-    icon: "🎨"
+    register: "/"
   },
   {
     name: "Poetry Slam",
@@ -64,10 +56,8 @@ export const culturalEventsData = [
       "Open mic sessions",
       "Published anthology for winners"
     ],
-    participants: "40-60 participants",
-    requirements: "Microphone, Stage",
     duration: "3 Hours",
-    icon: "📝"
+    register: "/"
   },
   {
     name: "Band Wars",
@@ -78,9 +68,7 @@ export const culturalEventsData = [
       "Professional audio setup",
       "Jam sessions between rounds"
     ],
-    participants: "20-30 bands",
-    requirements: "Stage, Audio equipment, Instruments",
     duration: "6 Hours",
-    icon: "🎸"
+    register: "/"
   }
 ];
