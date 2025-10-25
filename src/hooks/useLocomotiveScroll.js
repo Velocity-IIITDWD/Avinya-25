@@ -19,8 +19,8 @@ export function useLocomotiveScroll() {
             smooth: true,
 
             // 🧈 MAXIMUM SMOOTHNESS SETTINGS
-            lerp: 0.3,                    // Lower = smoother (was 0.03)
-            multiplier: 1,               // Slower scroll (was 0.6)
+            lerp: 0.25,                    // Lower = smoother (was 0.03)
+            multiplier: 0.75,               // Slower scroll (was 0.6)
             touchMultiplier: 2,            // Smooth touch on desktop
             firefoxMultiplier: 50,         // Firefox optimization
 
