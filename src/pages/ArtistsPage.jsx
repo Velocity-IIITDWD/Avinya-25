@@ -255,18 +255,7 @@ function ArtistsPage() {
                 <span className="text-purple-400 mr-3 text-xl">✓</span>
                 <span>Networking opportunities with artists</span>
               </li>
-              <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
-                <span>Refreshments and snacks included</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
-                <span>Certificate of participation</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
-                <span>Exclusive techFEST'25 swag bag</span>
-              </li>
+            
             </ul>
           </div>
         </div>
@@ -279,7 +268,7 @@ function ArtistsPage() {
             Ready to Join?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Don't miss out on this incredible opportunity to experience amazing music, connect with talented artists, and be part of techFEST'25!
+            Don't miss out on this incredible opportunity to experience amazing music, connect with talented artists, and be part of Avinya '25!
           </p>
           <a
             href="https://forms.gle/your-registration-form-link"

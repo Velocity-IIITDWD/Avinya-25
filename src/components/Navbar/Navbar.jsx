@@ -54,15 +54,17 @@ function Navbar() {
           </div>
 
           {/* Mobile menu toggle */}
-          <div
+          <button
             className="navbar-mobile-toggle"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
-          </div>
-        </div> {/* ✅ Close navbar-content */}
+          </button>
+        </div>
 
         {/* Mobile menu */}
         {isMobileMenuOpen && (
@@ -81,7 +83,7 @@ function Navbar() {
             </div>
           </div>
         )}
-      </div> {/* ✅ Close navbar-container */}
+      </div>
 
       {/* Backdrop for mobile menu */}
       {isMobileMenuOpen && (
