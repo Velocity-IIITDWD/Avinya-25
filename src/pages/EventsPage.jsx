@@ -127,16 +127,18 @@ function EventCard({ event, index, isTech }) {
           </ul>
         </div>
         
-        {/* Fixed Register Button */}
-        <button
-          onClick={handleRegister}
-          className="group/btn relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex-shrink-0"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-          <span className="relative z-10 flex items-center justify-center">
-            <span>Register Now</span>
-          </span>
-        </button>
+        {/* Fixed Register Button - Hidden for Startup Conclave */}
+        {event.name !== "Startup Conclave" && (
+          <button
+            onClick={handleRegister}
+            className="group/btn relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex-shrink-0"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+            <span className="relative z-10 flex items-center justify-center">
+              <span>Register Now</span>
+            </span>
+          </button>
+        )}
       </div>
       
       {/* Hover glow effect */}
@@ -236,7 +238,7 @@ function EventsPage() {
           {/* Enhanced Events Grid with staggered animations */}
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {activeTab === 'tech' 
-              ? techEventsData.map((event, index) => (
+              ? techEventsData.sort((a, b) => a.sNo - b.sNo).map((event, index) => (
                   <div 
                     key={index} 
                     className="animate-fade-in-up"
@@ -245,6 +247,7 @@ function EventsPage() {
                       animationFillMode: 'both'
                     }}
                   >
+           
                     <EventCard event={event} index={index} isTech={true} />
                   </div>
                 ))
@@ -257,6 +260,7 @@ function EventsPage() {
                       animationFillMode: 'both'
                     }}
                   >
+           
                     <EventCard event={event} index={index} isTech={false} />
                   </div>
                 ))
