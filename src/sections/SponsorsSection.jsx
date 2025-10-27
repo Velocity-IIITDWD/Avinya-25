@@ -57,16 +57,16 @@ export default function SponsorsSection() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-10 mt-15 sm:mt-20 h-auto">
           <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-auto sm:h-[13vw]' src="/pvr.png" alt="" />
+            <img className='h-auto sm:h-[13vw] lg:h-[10vw]' src="/pvr.png" alt="" />
           </div>
           <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-auto  sm:h-[13vw]' src="/mishra.png" alt="" />
+            <img className='h-auto  sm:h-[13vw] lg:h-[10vw]' src="/mishra.png" alt="" />
           </div>
           <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-auto sm:h-[13vw]' src="/pizza.png" alt="" />
+            <img className='h-auto sm:h-[13vw] lg:h-[10vw]' src="/pizza.png" alt="" />
           </div>
           <div className='h-auto border border-gray-500 sm:h-[25vh] w-auto p-4 rounded-3xl flex flex-start items-center flex-col'>
-            <img className='h-auto sm:h-[15vw] align-middle' src="/pop.png" alt="" />
+            <img className='h-auto sm:h-[15vw] lg:h-[10vw] align-middle' src="/pop.png" alt="" />
           </div>
         </div>
       </div >
