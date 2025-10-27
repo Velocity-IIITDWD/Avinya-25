@@ -31,7 +31,7 @@ function ArtistsPage() {
       instagram: "https://www.instagram.com/anujrehan_music",
       handle: "@anujrehan_music",
       image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&h=600&fit=crop",
-      color: "from-purple-600 to-pink-600",
+      color: "from-gray-700 to-gray-600",
       description: "Anuj Rehan is a talented music producer and artist known for creating captivating melodies and beats that resonate with audiences. With a unique blend of contemporary sounds and traditional influences, Anuj brings fresh energy to every track. His passion for music production shines through in his innovative compositions and collaborative spirit.",
       highlights: ["Music Production", "Original Compositions", "Live Performances"]
     },
@@ -42,7 +42,7 @@ function ArtistsPage() {
       instagram: "https://www.instagram.com/the_dj_rubz",
       handle: "@the_dj_rubz",
       image: "https://images.unsplash.com/photo-1571266028243-d220c6ce8460?w=600&h=600&fit=crop",
-      color: "from-blue-600 to-cyan-600",
+      color: "from-gray-600 to-gray-700",
       description: "DJ Rubz is a dynamic and skilled DJ who knows how to get any crowd moving. Specializing in mixing diverse genres and creating unforgettable experiences, DJ Rubz brings high energy and technical expertise to every performance. With an impressive ability to read the room and curate perfect playlists, DJ Rubz has become a favorite at events and parties.",
       highlights: ["Expert Mixing", "Crowd Control", "Multi-Genre Mastery"]
     }
@@ -52,18 +52,18 @@ function ArtistsPage() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gray-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gray-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-gray-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Header */}
       <div className="relative z-10 pt-32 pb-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <div className="inline-block mb-8 animate-bounce">
-            <Music className="w-16 h-16 text-purple-400" />
+            <Music className="w-16 h-16 text-gray-300" />
           </div>
-          <h1 className="text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-6xl md:text-7xl font-black mb-4 bg-gradient-to-r from-white via-gray-300 to-gray-400 bg-clip-text text-transparent">
             Meet Our Artists
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
@@ -110,7 +110,7 @@ function ArtistsPage() {
                     href={artist.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute bottom-6 right-6 z-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full p-3 hover:scale-110 transition-transform duration-300 shadow-lg"
+                    className="absolute bottom-6 right-6 z-20 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-3 hover:scale-110 transition-transform duration-300 shadow-lg"
                   >
                     <Instagram className="w-6 h-6 text-white" />
                   </a>
@@ -122,7 +122,7 @@ function ArtistsPage() {
             <div className="w-full lg:w-1/2 space-y-6">
               <div className="space-y-3">
                 <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-                  <Disc className="w-4 h-4 text-purple-400 animate-spin" style={{ animationDuration: '3s' }} />
+                  <Disc className="w-4 h-4 text-gray-300 animate-spin" style={{ animationDuration: '3s' }} />
                   <span className="text-sm text-gray-300">{artist.role}</span>
                 </div>
                 <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
@@ -132,7 +132,7 @@ function ArtistsPage() {
                   href={artist.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
+                  className="inline-flex items-center space-x-2 text-gray-300 hover:text-gray-200 transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
                   <span className="text-lg">{artist.handle}</span>
@@ -175,43 +175,43 @@ function ArtistsPage() {
       <div className="relative z-10 max-w-6xl mx-auto px-4 pb-20">
         <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Event Guidelines
             </h2>
             <p className="text-gray-400">Please read carefully before registering</p>
           </div>
 
           <div className="space-y-4">
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300">
+            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-gray-500/50 transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <span className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span>
+                <span className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span>
                 <p className="text-gray-300 leading-relaxed pt-2">
                   All participants must carry a valid college ID card and techFEST'25 registration pass at all times during the event.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-pink-500/50 transition-all duration-300">
+            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-gray-400/50 transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <span className="bg-gradient-to-br from-pink-500 to-red-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span>
+                <span className="bg-gradient-to-br from-gray-600 to-gray-700 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</span>
                 <p className="text-gray-300 leading-relaxed pt-2">
                   Participants are expected to maintain discipline and follow the instructions of organizers, volunteers, and security personnel.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-blue-500/50 transition-all duration-300">
+            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-gray-400/50 transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <span className="bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">3</span>
+                <span className="bg-gradient-to-br from-gray-500 to-gray-600 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">3</span>
                 <p className="text-gray-300 leading-relaxed pt-2">
                   Any form of misconduct, harassment, or use of prohibited substances will lead to immediate disqualification and removal from the premises.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-cyan-500/50 transition-all duration-300">
+            <div className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-gray-400/50 transition-all duration-300">
               <div className="flex items-start space-x-4">
-                <span className="bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">4</span>
+                <span className="bg-gradient-to-br from-gray-400 to-gray-500 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">4</span>
                 <p className="text-gray-300 leading-relaxed pt-2">
                   The organizing committee reserves the right to make changes to schedules, rules, or guidelines if required. Updates will be communicated promptly.
                 </p>
@@ -224,35 +224,35 @@ function ArtistsPage() {
       {/* Pricing Section */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 pb-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
             Event Pricing
           </h2>
           <p className="text-gray-400">Secure your spot at techFEST'25</p>
         </div>
 
         <div className="max-w-md mx-auto">
-          <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 backdrop-blur-lg rounded-3xl p-10 border-2 border-purple-500 relative hover:transform hover:scale-105 transition-all duration-300 shadow-2xl">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold">
+          <div className="bg-gradient-to-br from-gray-600/20 to-gray-700/20 backdrop-blur-lg rounded-3xl p-10 border-2 border-gray-600 relative hover:transform hover:scale-105 transition-all duration-300 shadow-2xl">
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gray-700 to-gray-600 text-white px-6 py-2 rounded-full text-sm font-bold">
               EARLY BIRD SPECIAL
             </div>
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-white mb-4">Standard Pass</h3>
               <div className="mb-2">
-                <span className="text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">₹499</span>
+                <span className="text-6xl font-black bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">₹499</span>
               </div>
               <p className="text-gray-400">per person</p>
             </div>
             <ul className="space-y-4 text-gray-300 mb-8">
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
+                <span className="text-gray-300 mr-3 text-xl">✓</span>
                 <span>Full event access to all performances</span>
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
+                <span className="text-gray-300 mr-3 text-xl">✓</span>
                 <span>Workshop and mentorship sessions</span>
               </li>
               <li className="flex items-start">
-                <span className="text-purple-400 mr-3 text-xl">✓</span>
+                <span className="text-gray-300 mr-3 text-xl">✓</span>
                 <span>Networking opportunities with artists</span>
               </li>
             
@@ -263,7 +263,7 @@ function ArtistsPage() {
 
       {/* Registration CTA */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 pb-32">
-        <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl p-12 text-center shadow-2xl">
+        <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-3xl p-12 text-center shadow-2xl">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
             Ready to Join?
           </h2>
@@ -274,7 +274,7 @@ function ArtistsPage() {
             href="https://forms.gle/your-registration-form-link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center space-x-3 bg-white text-purple-600 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center space-x-3 bg-white text-gray-700 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             <span>Register Now</span>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
