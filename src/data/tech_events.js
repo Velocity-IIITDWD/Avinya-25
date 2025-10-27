@@ -1,6 +1,6 @@
 export const techEventsData = [
   {
-    name: "CodeQuest",
+    name: "Tech Odyssey",
     title: "The Ultimate Multi-Round Coding Challenge",
     description: [
       "CodeQuest is an intense, multi-round coding competition designed to test not just your programming skills but your overall problem-solving, logic, and domain knowledge.",
