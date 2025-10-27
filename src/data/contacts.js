@@ -31,7 +31,7 @@ export const contactsData = {
       link: "https://www.instagram.com/iiit.dharwad/"
     },
     {
-      platform: "Instagram Iridescence",
+      platform: "Iridescence",
       gradient: "from-blue-600 to-blue-800",
       link: "https://www.instagram.com/iridescence.iiitdwd/"
     }
