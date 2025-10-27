@@ -27,10 +27,8 @@ function Navbar() {
       <div className="navbar-container">
         <div className="navbar-content">
           {/* Logo */}
-          <div className="navbar-logo">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-              Avinya '25
-            </Link>
+          <div className="navbar-logo mt-5">
+            <img src="/white.png" alt="Logo" height={80} width={80} />
           </div>
 
           {/* Desktop Navigation */}
