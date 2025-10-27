@@ -36,7 +36,7 @@ export default function Footer() {
      {page:"Home",link:"#"},
      {page:"Events",link:"#events"},
      {page:"About",link:"#about"},
-     {page:"Sponsers",link:"#sponsors"},
+     {page:"Sponsors",link:"#sponsors"},
      {page:"Contact",link:"#contact"},
 
 

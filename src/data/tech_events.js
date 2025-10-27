@@ -10,6 +10,60 @@ export const techEventsData = [
     participants: "200-300 participants (Inter-college)",
     requirements: "WIFI Access, M-block, 120 Seaters",
     duration: "8 Hours",
+    sNo:1,
+    register: "/"
+  },
+
+  {
+    name: "Integrating Large Language Models on FPGAs",
+    title: "AI Hardware Acceleration Workshop",
+    description: [
+      "In this hands-on workshop, participants will explore the cutting edge of AI hardware acceleration by integrating Large Language Models (LLMs) with Field-Programmable Gate Arrays (FPGAs).",
+      "As LLMs continue to push the boundaries of computation, FPGAs offer a powerful, customizable platform for achieving high performance, energy efficiency, and low-latency inference at the edge."
+    ],
+    participants: "100",
+    requirements: "FPGA Boards, Classrooms, 120-Seater",
+    duration: "6 Hours",
+    sNo:2,
+    register: "/"
+  },
+  {
+    name: "Mega-Rush",
+    title: "The Ultimate Inter-College E-Sports Showdown",
+    description: [
+      "Mega-Rush is a gaming extravaganza at Mega-Rush, the premier inter-college E-Sports competition where skill, strategy, and speed collide!",
+      "Join gamers from across colleges as they battle it out in an electrifying series of tournaments featuring some of the most popular competitive titles. Whether you're a seasoned pro or an aspiring gamer, Mega-Rush is your arena to prove your dominance and claim ultimate bragging rights."
+    ],
+    participants: "600 (Outside participants are also allowed)",
+    requirements: "WIFI Access, M-block and 120-Seaters",
+    duration: "10 hours",
+    sNo:3,
+    register: "/"
+  },
+  {
+    name: "Cybersecurity Workshop",
+    title: "Hands-on Cybersecurity Training",
+    description: [
+      "The workshop will cover key cybersecurity concepts — from basics like hashing, cryptography, and phishing emails to advanced tools such as Nmap, Hydra, and Gobuster.",
+      "It will conclude with a real-world simulation on the TryHackMe platform, where participants will gain remote access to a target machine. The session will be fully interactive, and students are required to bring their laptops and log in to TryHackMe."
+    ],
+    participants: "150 (Outside participants are also allowed)",
+    requirements: "WIFI Access and 120-Seaters",
+    duration: "4 hours",
+    sNo:4,
+    register: "/"
+  },
+  {
+    name: "RTL2GDSII Competition",
+    title: "VLSI Design Challenge 2025",
+    description: [
+      "The RTL to GDSII Design Challenge 2025 is a VLSI design competition where participants implement a given RTL design through the complete ASIC flow to generate a verified GDSII layout.",
+      "The event tests skills in synthesis, floorplanning, placement, routing, and timing closure using professional EDA tools such as Cadence and Synopsys. Designs will be evaluated based on timing, area, power, and layout correctness."
+    ],
+    participants: "150 (Outside participants are also allowed)",
+    requirements: "WIFI Access and 120-Seaters",
+    duration: "7 hours",
+    sNo:5,
     register: "/"
   },
   {
@@ -23,54 +77,7 @@ export const techEventsData = [
     participants: "80 – 200 (Startup Founders & Entrepreneurs and Investors & Mentors)",
     requirements: "Pi-Block, Senate Hall, Presentation rooms",
     duration: "8 – 10 Hours",
+    sNo:6,
     register: "/"
   },
-  {
-    name: "Integrating Large Language Models on FPGAs",
-    title: "AI Hardware Acceleration Workshop",
-    description: [
-      "In this hands-on workshop, participants will explore the cutting edge of AI hardware acceleration by integrating Large Language Models (LLMs) with Field-Programmable Gate Arrays (FPGAs).",
-      "As LLMs continue to push the boundaries of computation, FPGAs offer a powerful, customizable platform for achieving high performance, energy efficiency, and low-latency inference at the edge."
-    ],
-    participants: "100",
-    requirements: "FPGA Boards, Classrooms, 120-Seater",
-    duration: "6 Hours",
-    register: "/"
-  },
-  {
-    name: "Mega-Rush",
-    title: "The Ultimate Inter-College E-Sports Showdown",
-    description: [
-      "Mega-Rush is a gaming extravaganza at Mega-Rush, the premier inter-college E-Sports competition where skill, strategy, and speed collide!",
-      "Join gamers from across colleges as they battle it out in an electrifying series of tournaments featuring some of the most popular competitive titles. Whether you're a seasoned pro or an aspiring gamer, Mega-Rush is your arena to prove your dominance and claim ultimate bragging rights."
-    ],
-    participants: "600 (Outside participants are also allowed)",
-    requirements: "WIFI Access, M-block and 120-Seaters",
-    duration: "10 hours",
-    register: "/"
-  },
-  {
-    name: "Cybersecurity Workshop",
-    title: "Hands-on Cybersecurity Training",
-    description: [
-      "The workshop will cover key cybersecurity concepts — from basics like hashing, cryptography, and phishing emails to advanced tools such as Nmap, Hydra, and Gobuster.",
-      "It will conclude with a real-world simulation on the TryHackMe platform, where participants will gain remote access to a target machine. The session will be fully interactive, and students are required to bring their laptops and log in to TryHackMe."
-    ],
-    participants: "150 (Outside participants are also allowed)",
-    requirements: "WIFI Access and 120-Seaters",
-    duration: "4 hours",
-    register: "/"
-  },
-  {
-    name: "RTL2GDSII Competition",
-    title: "VLSI Design Challenge 2025",
-    description: [
-      "The RTL to GDSII Design Challenge 2025 is a VLSI design competition where participants implement a given RTL design through the complete ASIC flow to generate a verified GDSII layout.",
-      "The event tests skills in synthesis, floorplanning, placement, routing, and timing closure using professional EDA tools such as Cadence and Synopsys. Designs will be evaluated based on timing, area, power, and layout correctness."
-    ],
-    participants: "150 (Outside participants are also allowed)",
-    requirements: "WIFI Access and 120-Seaters",
-    duration: "7 hours",
-    register: "/"
-  }
 ];

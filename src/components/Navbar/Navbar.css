@@ -17,7 +17,6 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 1rem;
-  position: relative;
 }
 
 .navbar-content {
@@ -112,18 +111,11 @@
   cursor: pointer;
   padding: 0;
   z-index: 60;
-  position: relative;
 }
 
 @media (min-width: 768px) {
   .navbar-mobile-toggle {
     display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .navbar-mobile-toggle {
-    display: flex;
   }
 }
 
@@ -134,7 +126,6 @@
   border-radius: 4px;
   transition: all 0.3s ease;
   display: block;
-  transform-origin: center;
 }
 
 .navbar-mobile-toggle:hover .icon-bar {
@@ -145,31 +136,13 @@
   transform: scale(0.95);
 }
 
-/* Hamburger animation when menu is open */
-.navbar-mobile-toggle[aria-expanded="true"] .icon-bar:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-
-.navbar-mobile-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar-mobile-toggle[aria-expanded="true"] .icon-bar:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
 /* Mobile Menu */
 .navbar-mobile-menu {
   display: block;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   animation: slideDown 0.3s ease;
   border-top: 1px solid #374151;
-  z-index: 50;
 }
 
 @keyframes slideDown {
@@ -247,27 +220,5 @@
 @media (max-width: 768px) {
   .navbar-content {
     height: 4rem;
-  }
-  
-  .navbar-mobile-toggle {
-    display: flex;
-    flex-shrink: 0;
-  }
-  
-  .navbar-desktop {
-    display: none;
-  }
-}
-
-/* Ensure mobile menu is visible on small screens */
-@media (max-width: 480px) {
-  .navbar-container {
-    padding: 0 0.75rem;
-  }
-  
-  .navbar-mobile-menu {
-    left: 0;
-    right: 0;
-    width: 100%;
   }
 }
