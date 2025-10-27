@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,19 +63,19 @@ function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="navbar-desktop">
-              <Link to="/" className="nav-item">
+              <Link to="/" className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
                 Home
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/events" className="nav-item">
+              <Link to="/events" className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
                 Events
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/artists" className="nav-item">
+              <Link to="/artists" className={`nav-item ${location.pathname === '/artists' ? 'active' : ''}`}>
                 Artists
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/team" className="nav-item">
+              <Link to="/team" className={`nav-item ${location.pathname === '/team' ? 'active' : ''}`}>
                 Team
                 <span className="nav-underline"></span>
               </Link>
@@ -102,7 +103,7 @@ function Navbar() {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mobile-nav-item"
+                className={`mobile-nav-item ${location.pathname === item.path ? 'active' : ''}`}
               >
                 {item.name}
               </Link>

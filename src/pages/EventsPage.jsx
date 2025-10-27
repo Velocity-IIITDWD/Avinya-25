@@ -160,7 +160,7 @@ function EventsPage() {
       {/* Tech Background */}
       <TechBackground />
       
-      <div className="relative z-10 py-20">
+      <div className="relative z-10 pt-32 pb-10">
         <div className="container mx-auto px-6">
           {/* Enhanced Header with animations */}
           <div className={`text-center mb-16 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
