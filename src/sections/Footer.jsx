@@ -62,11 +62,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           
           {/* Brand Section */}
-          <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
-            <h1 className="text-4xl font-bold font-mont text-white mb-6 italic tracking-wider">
+          <div data-animate className="flex flex-col transition-all duration-1000 ease-out text-center md:text-left items-center">
+            <div>
+              <img src="/white.png" alt="Logo" height={100} width={100} />
+            </div>
+            <h1 className="text-2xl font-bold font-mont text-white mb-6 italic tracking-wider">
               Avinya '25
             </h1>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8">
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 text-center">
               The premier tech and cultural fest bringing together innovation and tradition.
             </p>
             <div className="flex gap-5 justify-center md:justify-start">
