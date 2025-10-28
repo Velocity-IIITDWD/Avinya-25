@@ -44,6 +44,7 @@ function Navbar() {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'Timeline', path: '/timeline' },
     { name: 'Events', path: '/events' },
     { name: 'Artists', path: '/artists' },
     { name: 'Team', path: '/team' },
@@ -72,7 +73,11 @@ function Navbar() {
                 Home
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/events" onClick={scrollToTop} className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
+              <Link to="/timeline" className={`nav-item ${location.pathname === '/timeline' ? 'active' : ''}`}>
+                Timeline
+                <span className="nav-underline"></span>
+              </Link>
+              <Link to="/events" className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
                 Events
                 <span className="nav-underline"></span>
               </Link>
