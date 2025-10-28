@@ -11,7 +11,7 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block, 120 Seaters",
     duration: "8 Hours",
     sNo:1,
-    register: "/"
+    register: "https://unstop.com/o/jmY1FQZ?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
   },
 
   {
@@ -25,7 +25,7 @@ export const techEventsData = [
     requirements: "FPGA Boards, Classrooms, 120-Seater",
     duration: "6 Hours",
     sNo:2,
-    register: "/"
+    register: "https://unstop.com/o/Q3EjT6r?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
   },
   {
     name: "Mega-Rush",
@@ -38,7 +38,7 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block and 120-Seaters",
     duration: "10 hours",
     sNo:4,
-    register: "/"
+    register: "https://unstop.com/o/YHmxdlp?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Competitions"
   },
   {
     name: "CyberSprint",
@@ -64,7 +64,7 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "7 hours",
     sNo:5,
-    register: "/"
+    register: "https://unstop.com/o/zVCafgv?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
   },
   {
     name: "Startup Conclave",
