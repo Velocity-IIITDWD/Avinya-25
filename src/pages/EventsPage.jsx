@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { techEventsData } from '../data/tech_events.js';
 import { culturalEventsData } from '../data/cultural_events.js';
 
@@ -35,7 +36,7 @@ function TechBackground() {
 }
 
 // Enhanced event card with tech aesthetics
-function EventCard({ event, index, isTech }) {
+function EventCard({ event, index, isTech, id }) {
   const [isHovered, setIsHovered] = useState(false);
   
   const handleRegister = () => {
@@ -62,6 +63,7 @@ function EventCard({ event, index, isTech }) {
 
   return (
     <div 
+      id={id}
       className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 h-[500px] ${
         isHovered ? 'shadow-2xl' : 'shadow-lg'
       }`}
@@ -150,10 +152,82 @@ function EventCard({ event, index, isTech }) {
 function EventsPage() {
   const [activeTab, setActiveTab] = useState('tech');
   const [isLoaded, setIsLoaded] = useState(false);
+  const location = useLocation();
+
+  const slugifyString = (str) => (str || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+  const { techWithIds, culturalWithIds } = useMemo(() => {
+    return {
+      techWithIds: techEventsData
+        .slice()
+        .sort((a, b) => a.sNo - b.sNo)
+        .map((e) => {
+          const base = `${e.name}-${e.sNo || e.title || ''}`;
+          const slug = slugifyString(base);
+          return { ...e, _slug: slug, _id: `event-${slug}` };
+        }),
+      culturalWithIds: culturalEventsData.map((e) => {
+        const base = `${e.name}-${e.title || ''}`;
+        const slug = slugifyString(base);
+        return { ...e, _slug: slug, _id: `event-${slug}` };
+      })
+    };
+  }, []);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  // Handle deep links like /events#event-codequest or /events#codequest
+  useEffect(() => {
+    const hash = (location.hash || '').replace('#', '');
+    if (!hash) return;
+
+    const normalizedSlug = hash.replace(/^event-/, '');
+    const techMatch = techWithIds.find((e) => e._slug === normalizedSlug);
+    const culturalMatch = culturalWithIds.find((e) => e._slug === normalizedSlug);
+
+    const getOffset = () => {
+      const navbar = document.querySelector('.navbar');
+      const headerHeight = navbar ? navbar.offsetHeight : 0;
+      // add small gap below the navbar
+      return -(headerHeight + 8);
+    };
+
+    const scrollToTarget = () => {
+      const selector = `#event-${normalizedSlug}`;
+      // First scroll quickly to trigger navbar state, then correct position
+      window.dispatchEvent(new CustomEvent('app-scroll-to', {
+        detail: { selector, offset: getOffset(), duration: 0 }
+      }));
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent('app-scroll-to', {
+          detail: { selector, offset: getOffset(), duration: 500 }
+        }));
+      }, 120);
+    };
+
+    // Switch tab if needed
+    if (techMatch && activeTab !== 'tech') {
+      setActiveTab('tech');
+      // Defer scroll until tab content renders
+      setTimeout(() => {
+        scrollToTarget();
+      }, 50);
+      return;
+    }
+
+    if (culturalMatch && activeTab !== 'cultural') {
+      setActiveTab('cultural');
+      setTimeout(() => {
+        scrollToTarget();
+      }, 50);
+      return;
+    }
+
+    // Same tab: just scroll
+    scrollToTarget();
+  }, [location.hash, activeTab, techWithIds, culturalWithIds]);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -238,30 +312,28 @@ function EventsPage() {
           {/* Enhanced Events Grid with staggered animations */}
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {activeTab === 'tech' 
-              ? techEventsData.sort((a, b) => a.sNo - b.sNo).map((event, index) => (
+              ? techWithIds.map((event, index) => (
                   <div 
-                    key={index} 
+                    key={event._id} 
                     className="animate-fade-in-up"
                     style={{ 
                       animationDelay: `${index * 100}ms`,
                       animationFillMode: 'both'
                     }}
                   >
-           
-                    <EventCard event={event} index={index} isTech={true} />
+                    <EventCard event={event} index={index} isTech={true} id={event._id} />
                   </div>
                 ))
-              : culturalEventsData.map((event, index) => (
+              : culturalWithIds.map((event, index) => (
                   <div 
-                    key={index} 
+                    key={event._id} 
                     className="animate-fade-in-up"
                     style={{ 
                       animationDelay: `${index * 100}ms`,
                       animationFillMode: 'both'
                     }}
                   >
-           
-                    <EventCard event={event} index={index} isTech={false} />
+                    <EventCard event={event} index={index} isTech={false} id={event._id} />
                   </div>
                 ))
             }
