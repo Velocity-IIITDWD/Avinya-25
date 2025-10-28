@@ -163,7 +163,7 @@ function ArtistsPage() {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center space-x-2 bg-gradient-to-r ${artist.color} px-8 py-4 rounded-full font-bold text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300`}
               >
-                <span>Follow on Instagram</span>
+                <span>Instagram</span>
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
