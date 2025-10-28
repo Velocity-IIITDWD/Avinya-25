@@ -23,15 +23,22 @@ export default function ContactsSection() {
         <div className="flex flex-col md:flex-row gap-8">
           {/* Direct contact info */}
           <div className="flex-1 space-y-6">
-            <a href={`mailto:${contacts[0].value}`} className="flex items-center gap-4 text-white/90 hover:text-white transition-colors">
-              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 icon-container">
+            <div className="flex items-start gap-4 text-white/90">
+              <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 icon-container mt-1">
                 <span className="text-2xl">{contacts[0].icon}</span>
               </div>
               <div>
                 <h3 className="text-xl font-light">Email</h3>
-                <p className="text-white/70">{contacts[0].value}</p>
+                <div className="space-y-1">
+                  {contacts[0].values.map((email, index) => (
+                    <a key={email} href={contacts[0].links[index]} 
+                       className="block text-white/70 hover:text-white transition-colors">
+                      {email} - <span className="text-sm">{contacts[0].desc[index]}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            </a>
+            </div>
 
             <div className="flex items-start gap-4 text-white/90">
               <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 icon-container mt-1">
@@ -43,7 +50,7 @@ export default function ContactsSection() {
                   {contacts[1].values.map((phone, index) => (
                     <a key={phone} href={contacts[1].links[index]} 
                        className="block text-white/70 hover:text-white transition-colors">
-                      {phone}
+                      {phone} - <span className="text-sm">{contacts[1].name[index]}</span>
                     </a>
                   ))}
                 </div>
