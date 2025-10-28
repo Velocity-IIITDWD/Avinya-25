@@ -6,6 +6,8 @@ import HomePage from './pages/HomePage.jsx'
 import EventsPage from './pages/EventsPage.jsx'
 import ArtistsPage from './pages/ArtistsPage.jsx'
 import TeamPage from './pages/TeamPage.jsx'
+import Timeline from './pages/Timeline.jsx'
+
 
 function App() {
   const { scrollRef, locomotiveRef } = useLocomotiveScroll();
@@ -18,6 +20,7 @@ function App() {
           <div className='min-h-screen relative' data-scroll-section>
             <Routes>
               <Route path="/" element={<HomePage container={scrollRef} />} />
+              <Route path="/timeline" element={<Timeline />} />
               <Route path="/events" element={<EventsPage />} />
               <Route path="/artists" element={<ArtistsPage />} />
               <Route path="/team" element={<TeamPage />} />

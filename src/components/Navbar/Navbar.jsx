@@ -44,6 +44,7 @@ function Navbar() {
 
   const navItems = [
     { name: 'Home', path: '/' },
+    { name: 'Timeline', path: '/timeline' },
     { name: 'Events', path: '/events' },
     { name: 'Artists', path: '/artists' },
     { name: 'Team', path: '/team' },
@@ -65,6 +66,10 @@ function Navbar() {
             <div className="navbar-desktop">
               <Link to="/" className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
                 Home
+                <span className="nav-underline"></span>
+              </Link>
+              <Link to="/timeline" className={`nav-item ${location.pathname === '/timeline' ? 'active' : ''}`}>
+                Timeline
                 <span className="nav-underline"></span>
               </Link>
               <Link to="/events" className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
