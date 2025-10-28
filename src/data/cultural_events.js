@@ -11,7 +11,7 @@ export const culturalEventsData = [
     register: "/"
   },
   {
-    name: "Mixed Media Art",
+    name: "Design Your Drink",
     title: "FLAVOURHOOD",
     description: [
       "Conceptualize and present your own drink — from flavor and ingredients to presentation and naming.",

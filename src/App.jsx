@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Router>
-        <ScrollToTop locomotiveRef={locomotiveRef} />
+        <ScrollController locomotiveRef={locomotiveRef} />
         <Navbar />
         <div ref={scrollRef} data-scroll-container>
           <div className='min-h-screen relative' data-scroll-section>
@@ -33,7 +33,7 @@ function App() {
 
 export default App;
 
-function ScrollToTop({ locomotiveRef }) {
+function ScrollController({ locomotiveRef }) {
   const location = useLocation();
 
   useEffect(() => {
@@ -45,12 +45,28 @@ function ScrollToTop({ locomotiveRef }) {
       }
     };
 
+    const handleScrollTo = (e) => {
+      const { selector, offset = 0, duration = 600 } = e.detail || {};
+      const target = selector ? document.querySelector(selector) : null;
+      if (!target) return;
+      if (locomotiveRef.current) {
+        locomotiveRef.current.scrollTo(target, { offset, duration });
+      } else {
+        const top = target.getBoundingClientRect().top + window.pageYOffset + offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    };
+
     // On route change, scroll to top
     handleScrollTop();
 
     // Listen for explicit scroll-to-top requests
     window.addEventListener('app-scroll-top', handleScrollTop);
-    return () => window.removeEventListener('app-scroll-top', handleScrollTop);
+    window.addEventListener('app-scroll-to', handleScrollTo);
+    return () => {
+      window.removeEventListener('app-scroll-top', handleScrollTop);
+      window.removeEventListener('app-scroll-to', handleScrollTo);
+    };
   }, [location.pathname, locomotiveRef]);
 
   return null;
