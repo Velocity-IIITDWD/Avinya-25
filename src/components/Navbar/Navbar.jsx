@@ -49,6 +49,11 @@ function Navbar() {
     { name: 'Team', path: '/team' },
   ];
 
+  const scrollToTop = () => {
+    // Dispatch a global event so App can perform the correct scroll (Locomotive or native)
+    window.dispatchEvent(new Event('app-scroll-top'));
+  };
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
@@ -56,26 +61,26 @@ function Navbar() {
           <div className="navbar-content">
             {/* Logo */}
             <div className="navbar-logo">
-              <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/" onClick={() => { setIsMobileMenuOpen(false); scrollToTop(); }}>
                 <img src="/white.png" alt="Logo" height={60} width={60} />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
             <div className="navbar-desktop">
-              <Link to="/" className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+              <Link to="/" onClick={scrollToTop} className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
                 Home
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/events" className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
+              <Link to="/events" onClick={scrollToTop} className={`nav-item ${location.pathname === '/events' ? 'active' : ''}`}>
                 Events
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/artists" className={`nav-item ${location.pathname === '/artists' ? 'active' : ''}`}>
+              <Link to="/artists" onClick={scrollToTop} className={`nav-item ${location.pathname === '/artists' ? 'active' : ''}`}>
                 Artists
                 <span className="nav-underline"></span>
               </Link>
-              <Link to="/team" className={`nav-item ${location.pathname === '/team' ? 'active' : ''}`}>
+              <Link to="/team" onClick={scrollToTop} className={`nav-item ${location.pathname === '/team' ? 'active' : ''}`}>
                 Team
                 <span className="nav-underline"></span>
               </Link>
@@ -102,7 +107,7 @@ function Navbar() {
               <Link
                 key={item.name}
                 to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => { setIsMobileMenuOpen(false); scrollToTop(); }}
                 className={`mobile-nav-item ${location.pathname === item.path ? 'active' : ''}`}
               >
                 {item.name}
