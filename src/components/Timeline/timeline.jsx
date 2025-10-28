@@ -18,7 +18,7 @@ const timelineData = [
     {
         id: 2,
         date: "Nov 6, 2025",
-        title: "Treasure Hunt",
+        title: "Treasure Hunt 4.0 - Zeitgeist",
         subtitle: "Campus-Wide Adventure",
         description: "Solve clues and race around the campus to uncover hidden treasures in this thrilling event.",
         icon: <Zap className="w-6 h-6" />,
