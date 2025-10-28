@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import './App.css'
+import { useEffect } from 'react'
 import { useLocomotiveScroll } from './hooks/useLocomotiveScroll.js'
 import Navbar from './components/Navbar/Navbar.jsx'
 import HomePage from './pages/HomePage.jsx'
