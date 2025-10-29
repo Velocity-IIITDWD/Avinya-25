@@ -93,7 +93,7 @@ function ArtistsPage() {
                   <img 
                     src={artist.image} 
                     alt={artist.name}
-                    className="w-full h-[500px] object-cover  "
+                    className="w-full h-[500px] object-cover object-top"
                   />
 
                   {/* Instagram Badge */}
