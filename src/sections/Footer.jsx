@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { MapPin, Calendar, Zap, Music, Code, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -34,7 +35,6 @@ export default function Footer() {
   const pages=[
    
      {page:"Home",link:"#"},
-     {page:"Events",link:"#events"},
      {page:"About",link:"#about"},
      {page:"Sponsors",link:"#sponsors"},
      {page:"Contact",link:"#contact"},
@@ -45,8 +45,8 @@ export default function Footer() {
   
 
   const eventCategories = [
-    { Icon: Code, label: 'Tech Events', color: 'text-blue-400' },
-    { Icon: Music, label: 'Cultural Events', color: 'text-pink-400' },
+    { Icon: Code, label: 'Tech Events', color: 'text-blue-400', href: '/events?tab=tech' },
+    { Icon: Music, label: 'Cultural Events', color: 'text-pink-400', href: '/events?tab=cultural' },
   ];
 
   const importantDates = [
@@ -109,16 +109,18 @@ export default function Footer() {
           <div data-animate className="transition-all duration-1000 ease-out text-center md:text-left">
             <h3 className="text-white font-semibold mb-8 text-lg">Event Categories</h3>
             <ul className="space-y-4 flex flex-col items-center md:items-start">
-              {eventCategories.map(({ Icon, label, color }) => (
+              {eventCategories.map(({ Icon, label, color, href }) => (
                 <li key={label} aria-label={Icon}>
-                  <p
-                    className="text-gray-500 cursor-pointer hover:text-white transition-all duration-300 text-sm group flex items-center gap-2"
+                  <Link
+                    to={href}
+                    className="text-gray-500 hover:text-white transition-all duration-300 text-sm group flex items-center gap-2"
+                    onClick={() => window.dispatchEvent(new Event('app-scroll-top'))}
                   >
                     <Icon size={16} className={`${color} group-hover:scale-110 transition-transform`} />
                     <span className="group-hover:translate-x-1 inline-block transition-transform">
                       {label}
                     </span>
-                  </p>
+                  </Link>
                 </li>
               ))}
             </ul>

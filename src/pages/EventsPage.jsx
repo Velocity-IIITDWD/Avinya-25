@@ -178,6 +178,27 @@ function EventsPage() {
     setIsLoaded(true);
   }, []);
 
+  // Read tab from query string (?tab=tech|cultural) and sync activeTab
+  useEffect(() => {
+    const params = new URLSearchParams(location.search || '');
+    const tab = (params.get('tab') || '').toLowerCase();
+    if (tab === 'tech' || tab === 'cultural') {
+      setActiveTab(tab);
+    }
+  }, [location.search]);
+
+  // Keep the URL query in sync when user switches tabs
+  useEffect(() => {
+    const params = new URLSearchParams(location.search || '');
+    if (activeTab) {
+      if (params.get('tab') !== activeTab) {
+        params.set('tab', activeTab);
+        const newUrl = `${location.pathname}?${params.toString()}${location.hash || ''}`;
+        window.history.replaceState(null, '', newUrl);
+      }
+    }
+  }, [activeTab]);
+
   // Handle deep links like /events#event-codequest or /events#codequest
   useEffect(() => {
     const hash = (location.hash || '').replace('#', '');
