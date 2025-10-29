@@ -6,7 +6,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
   return (
     <div className='mt-40 h-auto sm:mt-40 m-auto px-4'>
       <h1 className='text-[7vw] text-white text-center mb-16'>
-        <ShinyText text="ABOUT FEST" speed={3} />
+        <ShinyText text="ABOUT FEST" speed={3} className='text-[9vw] sm:text-[6vw]' />
       </h1>
       <div className="mx-2">
         <ScrollReveal
@@ -19,7 +19,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
           scrollContainerRef={scrollContainerRef} // ✅ Now properly passed
           rotationEnd="center center"
           wordAnimationEnd="center center"
-          font_size='text-[8vw] sm:text-[6vw]'
+          font_size='text-[6vw] sm:text-[5vw]'
         >
           AVINYA 2025
         </ScrollReveal>
@@ -34,7 +34,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
           scrollContainerRef={scrollContainerRef}
           rotationEnd="center center"
           wordAnimationEnd="center center"
-          font_size='text-[clamp(1rem,3vw,2.4vw)]'
+          font_size='text-[clamp(.8rem,2.5vw,2vw)]'
         >
           The Techno-Cultural Fest of IIIT Dharwad
         </ScrollReveal>
@@ -45,7 +45,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
           baseRotation={7}
           blurStrength={8}
           textClassName='text-white text-center leading-relaxed text-xs'
-          font_size='text-[3vw] sm:text-[2vw]'
+          font_size='text-[2vw] sm:text-[1.5vw]'
           containerClassName='overflow-hidden mt-5'
           scrollContainerRef={scrollContainerRef}
           rotationEnd="center center"
@@ -60,7 +60,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
           baseRotation={7}
           blurStrength={8}
           textClassName='text-white text-center leading-relaxed text-xs'
-          font_size='text-[3vw] sm:text-[2vw]'
+          font_size='text-[2vw] sm:text-[1.5vw]'
           containerClassName='overflow-hidden mt-5'
           scrollContainerRef={scrollContainerRef}
           rotationEnd="center center"
@@ -75,7 +75,7 @@ export default function AboutSection({ scrollContainerRef }) { // ✅ Changed fr
           baseRotation={7}
           blurStrength={8}
           textClassName='text-white text-center leading-relaxed text-xs'
-          font_size='text-[3vw] sm:text-[2vw]'
+          font_size='text-[2vw] sm:text-[1.5vw]'
           containerClassName='overflow-hidden mt-5'
           scrollContainerRef={scrollContainerRef}
           rotationEnd="center center"
