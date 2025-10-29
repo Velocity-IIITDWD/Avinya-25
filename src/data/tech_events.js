@@ -64,7 +64,7 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "7 hours",
     sNo:5,
-    register: "https://unstop.com/o/zVCafgv?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
+    register: "https://forms.gle/dZQZR3gxvj8JykG1A"
   },
   {
     name: "Startup Conclave",
