@@ -38,7 +38,7 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block and 120-Seaters",
     duration: "10 hours",
     sNo:4,
-    register: "https://unstop.com/o/YHmxdlp?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Competitions"
+    register: "https://forms.gle/oA3A8hcYyJvUmqMd9"
   },
   {
     name: "CyberSprint",
@@ -51,7 +51,7 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "4 hours",
     sNo:3,
-    register: "/"
+    register: "https://unstop.com/o/NwHT4bz?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Workshops"
   },
   {
     name: "Yukti",
