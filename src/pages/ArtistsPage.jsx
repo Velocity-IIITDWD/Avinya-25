@@ -266,7 +266,7 @@ function ArtistsPage() {
               </li>
               <li className="flex items-start">
                 <span className="text-gray-300 mr-3 text-xl">✓</span>
-                <span>Full Access to all tech and cultural events</span>
+                <span>Full Access to spectate all tech and cultural events</span>
               </li>
              
             </ul>
