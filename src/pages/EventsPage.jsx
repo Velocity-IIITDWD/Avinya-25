@@ -64,7 +64,7 @@ function EventCard({ event, index, isTech, id }) {
   return (
     <div 
       id={id}
-      className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 h-[500px] ${
+      className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 h-[600px] ${
         isHovered ? 'shadow-2xl' : 'shadow-lg'
       }`}
       style={{
@@ -140,6 +140,24 @@ function EventCard({ event, index, isTech, id }) {
               <span>Register Now</span>
             </span>
           </button>
+        )}
+
+        {/* SPOCs Contact Information */}
+        {event.spocs && event.spocs.length > 0 && (
+          <div className="mt-4 flex-shrink-0">
+            <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+              <div className="w-2 h-2 bg-gray-400 rounded-full animate-ping"></div>
+              Contact - For queries
+            </h4>
+            <ul className="text-gray-300 text-sm space-y-1">
+              {event.spocs.map((spoc, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <span className="text-gray-400">•</span>
+                  <span>{spoc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </div>
       
