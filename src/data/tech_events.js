@@ -11,7 +11,12 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block, 120 Seaters",
     duration: "8 Hours",
     sNo:1,
-    register: "https://unstop.com/o/jmY1FQZ?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
+    register: "https://unstop.com/o/jmY1FQZ?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge",
+    spocs: [
+      "Sai Sathwik - 8074916768",
+      "Abhilash Bhargav - 9963723207",
+      "Simone - 8369512159"
+    ]
   },
 
   {
@@ -25,7 +30,12 @@ export const techEventsData = [
     requirements: "FPGA Boards, Classrooms, 120-Seater",
     duration: "6 Hours",
     sNo:2,
-    register: "https://unstop.com/o/Q3EjT6r?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
+    register: "https://unstop.com/o/Q3EjT6r?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge",
+    spocs: [
+      "Om - 7257832741",
+      "Chinmay Ardilkar  - 7219275768",
+      "Adithya Vikram Singh - 9457884186"
+    ]
   },
   {
     name: "Mega-Rush",
@@ -38,7 +48,12 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block and 120-Seaters",
     duration: "10 hours",
     sNo:4,
-    register: "https://forms.gle/oA3A8hcYyJvUmqMd9"
+    register: "https://forms.gle/oA3A8hcYyJvUmqMd9",
+    spocs: [
+      "Sadgun - 8688754942",
+      "Aneesh - 8897860318",
+      "Keerthi Vassan- 9566308366"
+    ]
   },
   {
     name: "CyberSprint",
@@ -51,7 +66,11 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "4 hours",
     sNo:3,
-    register: "https://unstop.com/o/NwHT4bz?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Workshops"
+    register: "https://unstop.com/o/NwHT4bz?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Workshops",
+    spocs: [
+      "Sai Sathwik - 8074916768",
+      "Kyathi - 8867723523",
+    ]
   },
   {
     name: "Yukti",
@@ -64,7 +83,11 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "7 hours",
     sNo:5,
-    register: "https://forms.gle/dZQZR3gxvj8JykG1A"
+    register: "https://forms.gle/dZQZR3gxvj8JykG1A",
+    spocs: [
+      "Divyansh Mishra - 9651988928",
+      "Vaibhav Deora - 7339714665",
+    ]
   },
   {
     name: "Startup Conclave",
@@ -78,6 +101,10 @@ export const techEventsData = [
     requirements: "Pi-Block, Senate Hall, Presentation rooms",
     duration: "8 - 10 Hours",
     sNo:6,
-    register: "/"
+    register: "/",
+    spocs: [
+      "Pradnesh Fernandez -9445301212",
+      "Avishi Agarwal - 7340321480",
+    ]
   },
 ];

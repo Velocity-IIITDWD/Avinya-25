@@ -8,7 +8,11 @@ export const culturalEventsData = [
       "Participants have 3 hours to complete and submit.",
     ],
     duration: "6 Hours",
-    register: "/"
+    register: "/",
+    spocs: [
+      "Sree Samhita - 78628 74957",
+      "Rishita S - 90147 38680"
+    ]
   },
   {
     name: "Design Your Drink",
@@ -19,7 +23,11 @@ export const culturalEventsData = [
       "Detailed guidelines will be shared by the organizing club.",
     ],
     duration: "5 Hours",
-    register: "/"
+    register: "/",
+    spocs: [
+      "Saurav Singh - 73983 17978",
+      "Zyan - 95800 45464"
+    ],
   },
   {
     name: "B-Roll Competition",
@@ -30,6 +38,10 @@ export const culturalEventsData = [
       "Rules and submission format will be announced by Iridescence club.",
     ],
     duration: "4 Hours",
-    register: "/"
+    register: "/",
+    spocs: [
+      "Pothan - 97000 34689",
+      "Abhishek - 99490 95295"
+    ]
   },
 ];
