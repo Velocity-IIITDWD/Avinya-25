@@ -2,15 +2,18 @@ export const contactsData = {
   contacts: [
     {
       title: "Email",
-      value: "contact@avinya.iiitdh.ac.in",
+      values: ["avinya-fest@iiitdwd.ac.in", "support-avinya-fest@iiitdwd.ac.in"],
       icon: "✉️",
-      link: "mailto:contact@avinya.iiitdh.ac.in"
+      desc: ["For general communication and coordination", "For registration support and participant queries"],
+      links: ["mailto:avinya-fest@iiitdwd.ac.in", "mailto:support-avinya-fest@iiitdwd.ac.in"]
     },
+
     {
       title: "Phone",
-      values: ["+91 1234567890", "+91 9876543210"],
+      values: ["+91 9789880949", "+91 8489889568"],
+      name: ["Prajin (Tech Secretary)", "Prem (Cultural Secretary)"],
       icon: "📱",
-      links: ["tel:+911234567890", "tel:+919876543210"]
+      links: ["tel:+919789880949", "tel:+918489889568"]
     },
     {
       title: "Address",

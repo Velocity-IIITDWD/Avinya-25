@@ -11,12 +11,12 @@ export const techEventsData = [
     requirements: "WIFI Access, M-block, 120 Seaters",
     duration: "8 Hours",
     sNo:1,
-    register: "/"
+    register: "https://unstop.com/o/jmY1FQZ?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
   },
 
   {
-    name: "Integrating Large Language Models on FPGAs",
-    title: "AI Hardware Acceleration Workshop",
+    name: "Vidyutvega",
+    title: "Quantize your AI and accelerate on FPGA",
     description: [
       "In this hands-on workshop, participants will explore the cutting edge of AI hardware acceleration by integrating Large Language Models (LLMs) with Field-Programmable Gate Arrays (FPGAs).",
       "As LLMs continue to push the boundaries of computation, FPGAs offer a powerful, customizable platform for achieving high performance, energy efficiency, and low-latency inference at the edge."
@@ -25,7 +25,7 @@ export const techEventsData = [
     requirements: "FPGA Boards, Classrooms, 120-Seater",
     duration: "6 Hours",
     sNo:2,
-    register: "/"
+    register: "https://unstop.com/o/Q3EjT6r?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge"
   },
   {
     name: "Mega-Rush",
@@ -37,12 +37,12 @@ export const techEventsData = [
     participants: "600 (Outside participants are also allowed)",
     requirements: "WIFI Access, M-block and 120-Seaters",
     duration: "10 hours",
-    sNo:3,
-    register: "/"
+    sNo:4,
+    register: "https://forms.gle/oA3A8hcYyJvUmqMd9"
   },
   {
-    name: "Cybersecurity Workshop",
-    title: "Hands-on Cybersecurity Training",
+    name: "CyberSprint",
+    title: "From basics to real world attack scenarios",
     description: [
       "The workshop will cover key cybersecurity concepts — from basics like hashing, cryptography, and phishing emails to advanced tools such as Nmap, Hydra, and Gobuster.",
       "It will conclude with a real-world simulation on the TryHackMe platform, where participants will gain remote access to a target machine. The session will be fully interactive, and students are required to bring their laptops and log in to TryHackMe."
@@ -50,12 +50,12 @@ export const techEventsData = [
     participants: "150 (Outside participants are also allowed)",
     requirements: "WIFI Access and 120-Seaters",
     duration: "4 hours",
-    sNo:4,
-    register: "/"
+    sNo:3,
+    register: "https://unstop.com/o/NwHT4bz?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Workshops"
   },
   {
-    name: "RTL2GDSII Competition",
-    title: "VLSI Design Challenge 2025",
+    name: "Yukti",
+    title: "The Chip Design Challenge",
     description: [
       "The RTL to GDSII Design Challenge 2025 is a VLSI design competition where participants implement a given RTL design through the complete ASIC flow to generate a verified GDSII layout.",
       "The event tests skills in synthesis, floorplanning, placement, routing, and timing closure using professional EDA tools such as Cadence and Synopsys. Designs will be evaluated based on timing, area, power, and layout correctness."
@@ -64,7 +64,7 @@ export const techEventsData = [
     requirements: "WIFI Access and 120-Seaters",
     duration: "7 hours",
     sNo:5,
-    register: "/"
+    register: "https://forms.gle/dZQZR3gxvj8JykG1A"
   },
   {
     name: "Startup Conclave",
@@ -74,9 +74,9 @@ export const techEventsData = [
       "The event aims to bridge ideas with opportunity, offering a space where aspiring founders can showcase their startups, pitch groundbreaking ideas, and engage with industry leaders, mentors, and venture capitalists.",
       "Participants will gain insights from keynote sessions, panel discussions, and interactive workshops led by successful entrepreneurs and startup ecosystem experts. Whether you're a student with a prototype, a startup looking to scale, or an investor seeking the next big idea — Startup Conclave is where innovation meets execution."
     ],
-    participants: "80 – 200 (Startup Founders & Entrepreneurs and Investors & Mentors)",
+    participants: "80 - 200 (Startup Founders & Entrepreneurs and Investors & Mentors)",
     requirements: "Pi-Block, Senate Hall, Presentation rooms",
-    duration: "8 – 10 Hours",
+    duration: "8 - 10 Hours",
     sNo:6,
     register: "/"
   },

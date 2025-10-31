@@ -30,7 +30,7 @@ function ArtistsPage() {
       role: "Music Producer & Artist",
       instagram: "https://www.instagram.com/anujrehan_music",
       handle: "@anujrehan_music",
-      image: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&h=600&fit=crop",
+      image: "../../Anuj_Rehan.jpg",
       color: "from-gray-700 to-gray-600",
       description: "Anuj Rehan is a talented music producer and artist known for creating captivating melodies and beats that resonate with audiences. With a unique blend of contemporary sounds and traditional influences, Anuj brings fresh energy to every track. His passion for music production shines through in his innovative compositions and collaborative spirit.",
       highlights: ["Music Production", "Original Compositions", "Live Performances"]
@@ -41,7 +41,7 @@ function ArtistsPage() {
       role: "Professional DJ & Music Curator",
       instagram: "https://www.instagram.com/the_dj_rubz",
       handle: "@the_dj_rubz",
-      image: "https://images.unsplash.com/photo-1571266028243-d220c6ce8460?w=600&h=600&fit=crop",
+      image: "../../Dj_Rubz.jpg",
       color: "from-gray-600 to-gray-700",
       description: "DJ Rubz is a dynamic and skilled DJ who knows how to get any crowd moving. Specializing in mixing diverse genres and creating unforgettable experiences, DJ Rubz brings high energy and technical expertise to every performance. With an impressive ability to read the room and curate perfect playlists, DJ Rubz has become a favorite at events and parties.",
       highlights: ["Expert Mixing", "Crowd Control", "Multi-Genre Mastery"]
@@ -89,21 +89,12 @@ function ArtistsPage() {
               <div className="relative group">
                 <div className={`absolute inset-0 bg-gradient-to-br ${artist.color} rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500`}></div>
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${artist.color} opacity-0 group-hover:opacity-30 transition-opacity duration-500 z-10`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${artist.color} opacity-0 z-10`}></div>
                   <img 
                     src={artist.image} 
                     alt={artist.name}
-                    className="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-[500px] object-cover object-top"
                   />
-                  
-                  {/* Floating Play Icon */}
-                  <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 transition-all duration-500 ${
-                    hoveredCard === artist.id ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-                  }`}>
-                    <div className="bg-white rounded-full p-6 shadow-2xl">
-                      <Play className="w-12 h-12 text-black fill-black" />
-                    </div>
-                  </div>
 
                   {/* Instagram Badge */}
                   <a 
@@ -163,7 +154,7 @@ function ArtistsPage() {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center space-x-2 bg-gradient-to-r ${artist.color} px-8 py-4 rounded-full font-bold text-white shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300`}
               >
-                <span>Follow on Instagram</span>
+                <span>Instagram</span>
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
