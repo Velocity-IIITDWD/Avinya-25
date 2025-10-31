@@ -32,7 +32,7 @@ export const techEventsData = [
     sNo:2,
     register: "https://unstop.com/o/Q3EjT6r?lb=yRUCONIq&utm_medium=Share&utm_source=suppofes28158&utm_campaign=Online_coding_challenge",
     spocs: [
-      "Om - 7257832741",
+      "Om Mishra - 7257832741",
       "Chinmay Ardilkar  - 7219275768",
       "Adithya Vikram Singh - 9457884186"
     ]
@@ -50,9 +50,9 @@ export const techEventsData = [
     sNo:4,
     register: "https://forms.gle/oA3A8hcYyJvUmqMd9",
     spocs: [
-      "Sadgun - 8688754942",
       "Aneesh - 8897860318",
-      "Keerthi Vassan- 9566308366"
+      "Sadhgun - 8688754942",
+      "KeerthiVassan- 9566308366"
     ]
   },
   {
