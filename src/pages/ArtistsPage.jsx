@@ -222,7 +222,7 @@ function ArtistsPage() {
             Don't miss out on this incredible opportunity to experience amazing music, connect with talented artists, and be part of Avinya '25!
           </p>
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdxHXIFdksz5NXyut_ckPLFFO_Vfh42sHE3X_rGh3R8wBYo6A/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScEn32EsKiZ5U357kgM2hZS2NkzdvORx9bGAYfCBMY9BXtAVg/viewform"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-3 bg-white text-gray-700 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
