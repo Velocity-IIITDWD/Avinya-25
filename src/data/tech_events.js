@@ -16,7 +16,8 @@ export const techEventsData = [
       "Sai Sathwik - 8074916768",
       "Abhilash Bhargav - 9963723207",
       "Simone - 8369512159"
-    ]
+    ],
+    date: "Nov 7, 2025"
   },
 
   {
@@ -35,7 +36,8 @@ export const techEventsData = [
       "Om Mishra - 7257832741",
       "Chinmay Ardilkar  - 7219275768",
       "Adithya Vikram Singh - 9457884186"
-    ]
+    ],
+    date: "Nov 8, 2025"
   },
   {
     name: "Mega-Rush",
@@ -53,7 +55,8 @@ export const techEventsData = [
       "Aneesh - 8897860318",
       "Sadhgun - 8688754942",
       "KeerthiVassan- 9566308366"
-    ]
+    ],
+    date: "Nov 8, 2025"
   },
   {
     name: "CyberSprint",
@@ -70,7 +73,8 @@ export const techEventsData = [
     spocs: [
       "Sai Sathwik - 8074916768",
       "Kyathi - 8867723523",
-    ]
+    ],
+    date: "Nov 8, 2025"
   },
   {
     name: "Yukti",
@@ -87,7 +91,8 @@ export const techEventsData = [
     spocs: [
       "Divyansh Mishra - 9651988928",
       "Vaibhav Deora - 7339714665",
-    ]
+    ],
+    date: "Nov 7, 2025"
   },
   {
     name: "Startup Conclave",
@@ -105,6 +110,7 @@ export const techEventsData = [
     spocs: [
       "Pradnesh Fernandez -9445301212",
       "Avishi Agarwal - 7340321480",
-    ]
+    ],
+    date: "Nov 7, 2025"
   },
 ];

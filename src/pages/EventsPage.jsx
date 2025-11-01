@@ -64,7 +64,9 @@ function EventCard({ event, index, isTech, id }) {
   return (
     <div 
       id={id}
-      className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 h-[600px] ${
+      className={`group relative overflow-hidden rounded-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
+        isTech ? 'h-[600px]' : 'h-[500px]'
+      } ${
         isHovered ? 'shadow-2xl' : 'shadow-lg'
       }`}
       style={{
@@ -105,12 +107,20 @@ function EventCard({ event, index, isTech, id }) {
           <p className="text-gray-300 text-lg font-medium">{event.title}</p>
         </div>
         
-        {/* Fixed Duration */}
-        <div className="mb-4 flex-shrink-0">
+        {/* Fixed Duration and Date */}
+        <div className="mb-4 flex-shrink-0 space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-gray-300 text-sm font-medium">Duration</span>
             <span className="text-gray-300 text-sm font-semibold">{event.duration}</span>
           </div>
+          {event.date && (
+            <div className="flex items-center justify-between">
+              <span className="text-gray-300 text-sm font-medium">Date</span>
+              <span className="text-gray-300 text-sm font-semibold bg-gray-700/50 px-2 py-1 rounded-md">
+                {event.date}
+              </span>
+            </div>
+          )}
         </div>
         
         {/* Scrollable Description */}
