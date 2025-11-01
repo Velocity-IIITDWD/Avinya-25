@@ -177,7 +177,7 @@ function ArtistsPage() {
               <div className="flex items-start space-x-4">
                 <span className="bg-gradient-to-br from-gray-700 to-gray-600 rounded-full w-10 h-10 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</span>
                 <p className="text-gray-300 leading-relaxed pt-2">
-                  All participants must carry a valid college ID card and techFEST'25 registration pass at all times during the event.
+                  All participants must carry a valid college ID card or Avinya'25 registration pass at all times during the event.
                 </p>
               </div>
             </div>
@@ -208,68 +208,6 @@ function ArtistsPage() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Pricing Section */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 pb-20">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-            Event Pricing
-          </h2>
-          <p className="text-gray-400">Secure your spot at Avinya '25!</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-          {/* Standard Pass Card */}
-          <div className="bg-gradient-to-br from-gray-600/20 to-gray-700/20 backdrop-blur-lg rounded-3xl p-10 border-2 border-gray-600 relative hover:transform hover:scale-105 transition-all duration-300 shadow-2xl">
-           
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-4">Standard Pass</h3>
-              <div className="mb-2">
-                <span className="text-6xl font-black bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">₹180</span>
-              </div>
-              <p className="text-gray-400">per person</p>
-            </div>
-            <ul className="space-y-4 text-gray-300 mb-8">
-              <li className="flex items-start">
-                <span className="text-gray-300 mr-3 text-xl">✓</span>
-              <span>Concert - Anuj Rehan</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-gray-300 mr-3 text-xl">✓</span>
-                <span>DJ Night - DJ Rubz</span>
-              </li>
-            
-            </ul>
-          </div>
-
-          {/* Premium Pass Card */}
-          <div className="bg-gradient-to-br from-gray-500/30 to-gray-600/30 backdrop-blur-lg rounded-3xl p-10 border-2 border-gray-500 relative hover:transform hover:scale-105 transition-all duration-300 shadow-2xl">
-           
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-4">Premium Pass</h3>
-              <div className="mb-2">
-                <span className="text-6xl font-black bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">₹250</span>
-              </div>
-              <p className="text-gray-400">per person</p>
-            </div>
-            <ul className="space-y-4 text-gray-300 mb-8">
-              <li className="flex items-start">
-                <span className="text-gray-300 mr-3 text-xl">✓</span>
-                <span>Concert - Anuj Rehan</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-gray-300 mr-3 text-xl">✓</span>
-                <span>DJ Night - DJ Rubz</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-gray-300 mr-3 text-xl">✓</span>
-                <span>Full Day pass to IIIT Dharward</span>
-              </li>
-             
-            </ul>
           </div>
         </div>
       </div>
