@@ -12,7 +12,8 @@ export const culturalEventsData = [
     spocs: [
       "Sree Samhita - 78628 74957",
       "Rishita S - 90147 38680"
-    ]
+    ],
+    date: "Nov 7, 2025"
   },
   {
     name: "Fumbles & Flavors",
@@ -27,6 +28,7 @@ export const culturalEventsData = [
       "Saurav Singh - 73983 17978",
       "Zyan - 95800 45464"
     ],
+    date: "Nov 7, 2025",
   },
   {
     name: "B-Roll Competition",
@@ -41,6 +43,7 @@ export const culturalEventsData = [
     spocs: [
       "Pothan - 97000 34689",
       "Abhishek - 99490 95295"
-    ]
+    ],
+    date: "TBD",
   },
 ];
