@@ -6,7 +6,7 @@ const timeline = () => {
   return (
     <div
       id="events"
-      className="px-5 sm:px-1 lg:px-70 flex flex-col items-center"
+      className="px-5 sm:px-1 lg:px-70 flex flex-col items-center mb-20"
     >
       <ShinyText
         text="Event Timeline"
