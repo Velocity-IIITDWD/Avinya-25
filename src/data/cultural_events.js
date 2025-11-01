@@ -15,15 +15,14 @@ export const culturalEventsData = [
     ]
   },
   {
-    name: "Design Your Drink",
-    title: "FLAVOURHOOD",
+    name: "Fumbles & Flavors",
+    title: "FLAVORHOOD",
     description: [
-      "Conceptualize and present your own drink — from flavor and ingredients to presentation and naming.",
-      "You may also showcase branding elements like logo or label.",
-      "Detailed guidelines will be shared by the organizing club.",
+      "An exciting blindfold plating challenge where participants must plate dishes using secret ingredients",
+      "Club will provide the required design for plating",
     ],
     duration: "5 Hours",
-    register: "/",
+    register: "https://docs.google.com/forms/d/e/1FAIpQLSclq-CykfkVYlBQrITx0kTa_F94VsD1uQ8H9GCAkPYvxkIhlA/viewform",
     spocs: [
       "Saurav Singh - 73983 17978",
       "Zyan - 95800 45464"
