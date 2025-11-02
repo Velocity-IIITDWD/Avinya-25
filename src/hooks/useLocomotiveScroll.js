@@ -8,74 +8,74 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function useLocomotiveScroll() {
-    const scrollRef = useRef(null);
-    const locomotiveRef = useRef(null);
+  const scrollRef = useRef(null);
+  const locomotiveRef = useRef(null);
 
-    useEffect(() => {
-        if (!scrollRef.current) return;
+  useEffect(() => {
+    if (!scrollRef.current) return;
 
-        const scroll = new LocomotiveScroll({
-            el: scrollRef.current,
-            smooth: true,
+    // 🧹 Clean up any old scroll container (important on refresh)
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
 
-            // 🧈 MAXIMUM SMOOTHNESS SETTINGS
-            lerp: 0.25,                    // Lower = smoother (was 0.03)
-            multiplier: 0.75,               // Slower scroll (was 0.6)
-            touchMultiplier: 2,            // Smooth touch on desktop
-            firefoxMultiplier: 50,         // Firefox optimization
+    const scroll = new LocomotiveScroll({
+      el: scrollRef.current,
+      smooth: true,
+      lerp: 0.15,
+      multiplier: 1,
+      smoothWheel: true,
+      resetNativeScroll: true,
+      reloadOnContextChange: true,
+      smartphone: { smooth: false },
+      tablet: { smooth: false },
+    });
+    console.log('Locomotive initialized');
 
-            // Smooth wheel scrolling
-            smoothWheel: true,
+    locomotiveRef.current = scroll;
 
-            // Mobile optimization
-            smartphone: {
-                smooth: false,
-                multiplier: 1
-            },
-            tablet: {
-                smooth: false,
-                multiplier: 1
-            },
+    scroll.on('scroll', ScrollTrigger.update);
 
-            // Additional smoothness options
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            reloadOnContextChange: true,
-            resetNativeScroll: true
-        });
-
-        locomotiveRef.current = scroll;
-
-        // Sync with GSAP ScrollTrigger
-        scroll.on('scroll', ScrollTrigger.update);
-
-        ScrollTrigger.scrollerProxy(scrollRef.current, {
-            scrollTop(value) {
-                return arguments.length
-                    ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
-                    : scroll.scroll.instance.scroll.y;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            },
-            pinType: scrollRef.current.style.transform ? 'transform' : 'fixed'
-        });
-
-        ScrollTrigger.addEventListener('refresh', () => scroll.update());
-        ScrollTrigger.refresh();
-
-        return () => {
-            scroll.off('scroll', ScrollTrigger.update);
-            ScrollTrigger.removeEventListener('refresh', () => scroll.update());
-            scroll.destroy();
-            ScrollTrigger.getAll().forEach(t => t.kill());
+    ScrollTrigger.scrollerProxy(scrollRef.current, {
+      scrollTop(value) {
+        return arguments.length
+          ? scroll.scrollTo(value, { duration: 0, disableLerp: true })
+          : scroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
         };
-    }, []);
+      },
+      pinType: scrollRef.current.style.transform ? 'transform' : 'fixed',
+    });
 
-    return { scrollRef, locomotiveRef };
+    ScrollTrigger.addEventListener('refresh', () => scroll.update());
+    ScrollTrigger.refresh();
+
+    // Fix refresh “stuck” issue by forcing full reset
+    setTimeout(() => {
+      scroll.scrollTo(0, { duration: 0, disableLerp: true });
+      scroll.update();
+    }, 300);
+
+    // Double-check again once layout fully paints
+    window.addEventListener('load', () => {
+      scroll.scrollTo(0, { duration: 0, disableLerp: true });
+      scroll.update();
+    });
+
+    const handleResize = () => scroll.update();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      scroll.destroy();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
+
+  return { scrollRef, locomotiveRef };
 }
