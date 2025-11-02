@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import TimelineEvent from "./timeline-events";
 import { Calendar, Zap, Music, Sparkles } from "lucide-react";
@@ -238,7 +238,7 @@ const timelineData = [
   },
 ];
 
-export default function Timeline() {
+export default function Timeline({ locomotiveRef }) {
   const [selectedDay, setSelectedDay] = useState(7);
   const days = [
     { number: 6, label: "Nov 6" },
@@ -249,6 +249,21 @@ export default function Timeline() {
   const filteredEvents = timelineData.filter(
     (event) => event.day === selectedDay,
   );
+
+  // Update locomotive when timeline content changes
+  useEffect(() => {
+    if (locomotiveRef?.current) {
+      setTimeout(() => locomotiveRef.current.update(), 400);
+    }
+  }, [selectedDay, locomotiveRef]);
+
+  // Reset scroll on mount
+  useEffect(() => {
+    if (locomotiveRef?.current) {
+      locomotiveRef.current.scrollTo(0, { duration: 0, disableLerp: true });
+      setTimeout(() => locomotiveRef.current.update(), 300);
+    }
+  }, [locomotiveRef]);
 
   return (
     <div className="space-y-12">

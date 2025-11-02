@@ -2,7 +2,7 @@ import React from "react";
 import Timeline from "../components/Timeline/timeline";
 import ShinyText from "../components/AboutFest/About";
 
-const timeline = () => {
+const timeline = ({ locomotiveRef }) => {
   return (
     <div
       id="events"
@@ -12,7 +12,8 @@ const timeline = () => {
         text="Event Timeline"
         className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-30 mb-10 sm:mb-30 text-balance font-mont"
       />
-      <Timeline />
+      <Timeline locomotiveRef={locomotiveRef} />
+      <div className="h-20"></div>
     </div>
   );
 };
