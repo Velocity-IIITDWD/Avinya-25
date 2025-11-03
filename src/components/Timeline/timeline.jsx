@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import TimelineEvent from "./timeline-events";
-import { Calendar, Zap, Music, Sparkles } from "lucide-react";
+import { Calendar, Zap, Music, Sparkles, Clapperboard } from "lucide-react";
 
 const timelineData = [
   // Nov 6 events
@@ -88,6 +88,17 @@ const timelineData = [
     icon: <Music className="w-6 h-6" />,
     time: "3:00 pm - 6:00 pm",
     venue: "120 seaters",
+  },
+  {
+    id: 22,
+    date: "Nov 7, 2025",
+    day: 7,
+    title: "Runway Uncoverd",
+    subtitle: "Ramp Walk",
+    description: "Dive into the world of fashion and showcase your style on the runway.",
+    icon: <Clapperboard className="w-6 h-6" />,
+    time: "7:00 pm - 7:30 pm",
+    venue: "Stage",
   },
   {
     id: 9,
