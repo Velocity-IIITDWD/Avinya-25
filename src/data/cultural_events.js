@@ -46,4 +46,20 @@ export const culturalEventsData = [
     ],
     date: "TBD",
   },
+  {
+    name: "Runway Uncoverd",
+    title: "INMOTION",
+    description: [
+      "Pick any style that you feel the most confident in and come conquer.",
+      "The Ramp is yours to walk. And bag the cash.",
+      "Drape and own the fabric with glamour.",
+    ],
+    duration: "30 mins",
+    register: "https://docs.google.com/forms/d/e/1FAIpQLSdsJJDQS5X-uEoKHOl0bi25dZ4mcoBnmUdqIjY39iTAXAAqgA/viewform?usp=header",
+    spocs: [
+      "Manoj Siripalli - 91107 98495",
+      "XYZ - XXXXX XXXXX"
+    ],
+    date: "Nov 7, 2025",
+  }
 ];
