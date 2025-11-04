@@ -138,7 +138,7 @@ function TeamPage() {
         >
           <div className="text-center mb-12">
             <ShinyText
-              text="Website Developers"
+              text="Website Development Team"
               className="text-3xl md:text-4xl font-bold"
             />
           </div>
