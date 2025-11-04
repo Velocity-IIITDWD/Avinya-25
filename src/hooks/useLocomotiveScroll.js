@@ -29,7 +29,6 @@ export function useLocomotiveScroll() {
       smartphone: { smooth: false },
       tablet: { smooth: false },
     });
-    console.log('Locomotive initialized');
 
     locomotiveRef.current = scroll;
 

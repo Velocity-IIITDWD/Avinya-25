@@ -10,7 +10,7 @@ export default function SponsorsSection() {
                 </h1>
                 <div className='flex flex-wrap justify-center items-center'>
                     <span className=' rounded-lg inline-block p-10'>
-                        <img className='w-[20vw] sm:w-[15vw] m-auto' src="sbi2.png" alt="" />
+                        <img className='w-[20vw] sm:w-[15vw] m-auto' src="/icons/sbi2.png" alt="" />
                         <ShinyText text="State Bank of India" className="text-[3vw] text-white text-center mt-3" speed={3} />
                     </span>
                 </div>
