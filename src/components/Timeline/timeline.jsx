@@ -21,7 +21,7 @@ const timelineData = [
     id: 2,
     date: "Nov 6, 2025",
     day: 6,
-    title: "Treasure Hunt 4.0 - Zeigeist",
+    title: "Treasure Hunt 4.0 - Zeitgeist",
     subtitle: "Campus Adventure",
     description:
       "Hunt for treasures across the campus with exciting prizes and rewards.",
