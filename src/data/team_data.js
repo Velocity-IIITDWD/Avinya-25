@@ -84,6 +84,7 @@ export const teamData = {
             { name: "Shardendu", image: "/images/SHARDENDU MISHRA.webp" },
             { name: "Divyansh", image: "/images/DIVYANSH MISHRA.webp" },
             { name: "Ishan", image: "/images/ISHAN SRIVASTAVA.webp" },
+            { name: "Kushagra", image: "/images/KUSHAGRA KUMAR ARORA.webp" },
         ]
     }
     ,
